@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3DDF493F23BF583500433FD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF493E23BF583500433FD6 /* AppDelegate.swift */; };
 		3DDF494123BF583500433FD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF494023BF583500433FD6 /* SceneDelegate.swift */; };
-		3DDF494323BF583500433FD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF494223BF583500433FD6 /* ViewController.swift */; };
 		3DDF494623BF583600433FD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDF494423BF583600433FD6 /* Main.storyboard */; };
 		3DDF494823BF583700433FD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDF494723BF583700433FD6 /* Assets.xcassets */; };
 		3DDF494B23BF583700433FD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDF494923BF583700433FD6 /* LaunchScreen.storyboard */; };
@@ -20,6 +19,8 @@
 		8413C9CD23C103D8006FAC0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8413C9CC23C103D8006FAC0F /* GoogleService-Info.plist */; };
 		8413C9CE23C103D8006FAC0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8413C9CC23C103D8006FAC0F /* GoogleService-Info.plist */; };
 		8413C9CF23C103D8006FAC0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8413C9CC23C103D8006FAC0F /* GoogleService-Info.plist */; };
+		8413C9D123C112D3006FAC0F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413C9D023C112D3006FAC0F /* WelcomeViewController.swift */; };
+		8413C9D323C113C8006FAC0F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413C9D223C113C8006FAC0F /* Post.swift */; };
 		CE9CC6A0DD7E1C1091DC8EC0 /* Pods_TravelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A338922670A8942665E598 /* Pods_TravelTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +48,6 @@
 		3DDF493B23BF583500433FD6 /* Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDF493E23BF583500433FD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DDF494023BF583500433FD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3DDF494223BF583500433FD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3DDF494523BF583600433FD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DDF494723BF583700433FD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DDF494A23BF583700433FD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		65A338922670A8942665E598 /* Pods_TravelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE6C5432CE8D217E380B421 /* Pods-TravelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelUITests/Pods-TravelUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8413C9CC23C103D8006FAC0F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8413C9D023C112D3006FAC0F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		8413C9D223C113C8006FAC0F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B3734912575AD7C5C28047BF /* Pods-TravelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelTests/Pods-TravelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBBA0714B70F98B11C631EAC /* Pods-Travel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travel/Pods-Travel.debug.xcconfig"; sourceTree = "<group>"; };
 		FCD05976942D3C534C2D522C /* Pods_Travel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 		8413C9CA23C10283006FAC0F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8413C9D223C113C8006FAC0F /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,7 +185,7 @@
 		8413C9CB23C1028D006FAC0F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3DDF494223BF583500433FD6 /* ViewController.swift */,
+				8413C9D023C112D3006FAC0F /* WelcomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -422,9 +425,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DDF494323BF583500433FD6 /* ViewController.swift in Sources */,
+				8413C9D123C112D3006FAC0F /* WelcomeViewController.swift in Sources */,
 				3DDF493F23BF583500433FD6 /* AppDelegate.swift in Sources */,
 				3DDF494123BF583500433FD6 /* SceneDelegate.swift in Sources */,
+				8413C9D323C113C8006FAC0F /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

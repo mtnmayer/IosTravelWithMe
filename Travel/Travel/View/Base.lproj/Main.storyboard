@@ -26,7 +26,7 @@
         <!--Welcome-->
         <scene sceneID="ZR4-XN-1ks">
             <objects>
-                <viewController id="KMF-If-3gx" sceneMemberID="viewController">
+                <viewController id="KMF-If-3gx" customClass="WelcomeViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HEW-zJ-J2C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
                                 <color key="backgroundColor" red="0.1803921568627451" green="0.69411764705882351" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="InO-gi-qdW" kind="show" id="KPW-GA-94q"/>
+                                    <segue destination="InO-gi-qdW" kind="show" identifier="goToHomepageSegue" id="KPW-GA-94q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1V9-Cl-Dx0">
@@ -50,7 +50,7 @@
                                 <color key="backgroundColor" red="0.18823529411764706" green="0.35686274509803922" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="gi1-pL-5Sk" kind="show" id="fjg-WR-2tZ"/>
+                                    <segue destination="gi1-pL-5Sk" kind="show" identifier="goToRegisterSegue" id="fjg-WR-2tZ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glP-fr-bkd">
@@ -70,6 +70,10 @@
                         <viewLayoutGuide key="safeArea" id="xRC-d7-Ula"/>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="9f9-1o-1ZS"/>
+                    <connections>
+                        <outlet property="emailText" destination="8hX-5U-qIa" id="0GH-zE-NQw"/>
+                        <outlet property="passwordText" destination="glP-fr-bkd" id="Y3K-K8-AZ4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="peA-Dw-xcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -218,6 +222,6 @@
         <image name="square.and.arrow.up.fill" catalog="system" width="56" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eMm-SO-mWZ"/>
+        <segue reference="KPW-GA-94q"/>
     </inferredMetricsTieBreakers>
 </document>
