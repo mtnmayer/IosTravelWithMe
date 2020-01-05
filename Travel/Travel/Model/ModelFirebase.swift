@@ -11,19 +11,19 @@ import Firebase
 
 class ModelFirebase{
     
-    func createUser(email:String, pass:String){
+    func createUser(email:String, password:String){
         
-       //TODO: Set up a new user on our Firbase database
-              
-              Auth.auth().createUser(withEmail: email, password: pass) {
-                  (user, error) in
-                  if error != nil{
-                    print(error!)
-                  }
-                  else{
-//                      print("Registration Successful!!")
-//                      self.performSegue(withIdentifier: "goToChat", sender: self)
-                  }
-              }
+        //TODO: Set up a new user on our Firbase database
+        
+        Auth.auth().createUser(withEmail: email, password: password) {
+            (user, error) in
+            if error != nil{
+                print(error!)
+            }
+            else{
+                print("Registration Successful!!")
+                //performSegue(withIdentifier: "goToHomePageSegue", sender: self)
+            }
+        }
     }
 }

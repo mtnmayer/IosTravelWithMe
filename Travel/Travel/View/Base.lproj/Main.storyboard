@@ -50,7 +50,7 @@
                                 <color key="backgroundColor" red="0.18823529411764706" green="0.35686274509803922" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="gi1-pL-5Sk" kind="show" identifier="goToRegisterSegue" id="fjg-WR-2tZ"/>
+                                    <segue destination="gi1-pL-5Sk" kind="show" id="GL1-cu-d23"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glP-fr-bkd">
@@ -103,16 +103,16 @@
             </objects>
             <point key="canvasLocation" x="2201" y="-173"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="jNO-xn-TAA">
             <objects>
-                <tableViewController id="dC0-GZ-vbL" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="100" sectionFooterHeight="28" id="ibX-r4-huK">
+                <tableViewController id="dC0-GZ-vbL" customClass="PostTableViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ibX-r4-huK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="7b9-yw-Zog">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="100" id="7b9-yw-Zog" customClass="PostViewCell" customModule="Travel" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7b9-yw-Zog" id="JKp-0P-OiO">
@@ -123,13 +123,6 @@
                                             <rect key="frame" x="9" y="6" width="101" height="89"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgD-dy-XVk">
-                                            <rect key="frame" x="118" y="11" width="42" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiA-zq-8BE">
                                             <rect key="frame" x="168" y="11" width="181" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -137,8 +130,34 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pze-iO-4LO">
+                                            <rect key="frame" x="118" y="57" width="47" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ih9-Hl-mIU">
+                                            <rect key="frame" x="168" y="57" width="204" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgD-dy-XVk">
+                                            <rect key="frame" x="118" y="11" width="42" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatar" destination="Gp8-nQ-7QO" id="Apg-Nr-u2B"/>
+                                    <outlet property="placeLabel" destination="ih9-Hl-mIU" id="51R-hI-n5x"/>
+                                    <outlet property="titleLabel" destination="oiA-zq-8BE" id="SRQ-Bl-Bdn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -150,6 +169,7 @@
                     <toolbarItems>
                         <barButtonItem id="3bb-sR-V1C"/>
                     </toolbarItems>
+                    <navigationItem key="navigationItem" title="Home" id="zdK-wQ-sea"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRL-t1-ZQa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -159,7 +179,7 @@
         <!--Register-->
         <scene sceneID="4he-ol-EsH">
             <objects>
-                <viewController id="gi1-pL-5Sk" sceneMemberID="viewController">
+                <viewController id="gi1-pL-5Sk" customClass="RegisterViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rj2-hN-OGd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,17 +194,19 @@
                                 <color key="backgroundColor" red="0.14509803921568626" green="0.63529411764705879" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="InO-gi-qdW" kind="show" id="eMm-SO-mWZ"/>
+                                    <action selector="registerBtn:" destination="T9q-Wt-eNb" eventType="touchUpInside" id="b5E-Yb-4Xo"/>
+                                    <action selector="registerBtn:" destination="gi1-pL-5Sk" eventType="touchUpInside" id="wGv-Cj-YI1"/>
+                                    <segue destination="InO-gi-qdW" kind="show" identifier="goToHomePageSegue" id="tLh-H4-iBu"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6Y-mL-M2Q">
-                                <rect key="frame" x="57" y="475" width="300" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-a7-Ye6">
+                                <rect key="frame" x="94" y="386" width="229" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mzw-s7-Yw8">
-                                <rect key="frame" x="57" y="541" width="300" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKZ-v4-TvS">
+                                <rect key="frame" x="93" y="431" width="229" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -194,8 +216,13 @@
                         <viewLayoutGuide key="safeArea" id="pUC-LO-4gV"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="uRb-Px-HLE"/>
+                    <connections>
+                        <outlet property="emailText" destination="a4G-a7-Ye6" id="cOx-zh-hNL"/>
+                        <outlet property="passwordText" destination="rKZ-v4-TvS" id="VHB-gQ-Kg9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtz-og-ktH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="T9q-Wt-eNb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2028.985507246377" y="553.125"/>
         </scene>
@@ -222,6 +249,6 @@
         <image name="square.and.arrow.up.fill" catalog="system" width="56" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KPW-GA-94q"/>
+        <segue reference="tLh-H4-iBu"/>
     </inferredMetricsTieBreakers>
 </document>

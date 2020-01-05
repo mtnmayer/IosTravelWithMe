@@ -13,11 +13,13 @@ class Post{
     var title:String = ""
     var description: String = ""
     var avatar:String = ""
+    var place:String = ""
     
-    init(title:String, description:String, avatar:String) {
+    init(title:String,place:String, description:String, avatar:String) {
         self.title = title
         self.description = description
         self.avatar = avatar
+        self.place = place
     }
     
 }
