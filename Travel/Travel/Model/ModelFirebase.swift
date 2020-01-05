@@ -9,12 +9,22 @@
 import Foundation
 import Firebase
 
+
 class ModelFirebase{
+    
+    func addPost(post:Post){
+        
+       // let db = Firestore.firestore()
+     }
+    
+     func getAllPosts()->[Post]{
+         
+         return [Post]()
+     }
     
     func createUser(email:String, password:String){
         
         //TODO: Set up a new user on our Firbase database
-        
         Auth.auth().createUser(withEmail: email, password: password) {
             (user, error) in
             if error != nil{

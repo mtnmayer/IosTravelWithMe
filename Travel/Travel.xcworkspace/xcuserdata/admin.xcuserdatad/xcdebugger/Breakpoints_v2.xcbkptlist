@@ -30,8 +30,8 @@
             filePath = "Travel/Model/Model.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "CreateUser(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F292E74E-A80F-4136-85AC-9EE203411B9E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Travel/Model/ModelFirebase.swift"
@@ -48,40 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "createUser(email:password:)"
+            landmarkName = "addPost(post:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F292E74E-A80F-4136-85AC-9EE203411B9E - c747d70509858500"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Travel.ModelFirebase.createUser(email: Swift.String, password: Swift.String) -&gt; ()"
-                  moduleName = "Travel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Desktop/IosTravelWithMe/Travel/Travel/Model/ModelFirebase.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "52">
-               </Location>
-               <Location
-                  uuid = "F292E74E-A80F-4136-85AC-9EE203411B9E - bf75d696804cee6b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Travel.ModelFirebase.createUser(email: Swift.String, password: Swift.String) -&gt; ()"
-                  moduleName = "Travel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Desktop/IosTravelWithMe/Travel/Travel/Model/ModelFirebase.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "85">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

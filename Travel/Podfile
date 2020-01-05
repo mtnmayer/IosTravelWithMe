@@ -6,6 +6,9 @@ target 'Travel' do
 
   # Pods for Travel
 
+pod 'Firebase/Analytics'
+pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
 pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'

@@ -12,12 +12,12 @@ class Model{
     
     static let instance = Model()
     
-    var modelSql:ModelSql = ModelSql()
+   // var modelSql:ModelSql = ModelSql()
     var modelFirebase:ModelFirebase = ModelFirebase()
    // var data = [Post]()
     
     private init(){
-        modelSql.connect()
+//        modelSql.connect()
 //        for i in 0...5{
 //            let post = Post(title: String(i), place: String(i), description: String(i), avatar: "")
 //            addPost(post: post)
@@ -26,12 +26,14 @@ class Model{
     
     func addPost(post:Post){
         //data.append(post)
-        modelSql.addPost(post: post)
+       // modelSql.addPost(post: post)
+        modelFirebase.addPost(post: post)
     }
     
     func getAllPosts()->[Post]{
         
-        return modelSql.getAllPosts()
+        //return modelSql.getAllPosts()
+        return modelFirebase.getAllPosts()
     }
     
     func CreateUser(user:User){
