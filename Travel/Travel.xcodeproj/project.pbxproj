@@ -26,6 +26,9 @@
 		84762A1323C2222900BD3603 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84762A1223C2222900BD3603 /* User.swift */; };
 		84762A1523C22C8500BD3603 /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84762A1423C22C8500BD3603 /* PostTableViewController.swift */; };
 		84762A1723C22E3A00BD3603 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84762A1623C22E3A00BD3603 /* PostViewCell.swift */; };
+		8492BE3723C2803B00B24054 /* PostInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492BE3623C2803B00B24054 /* PostInfoViewController.swift */; };
+		8492BE3923C2874800B24054 /* ModelSql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492BE3823C2874800B24054 /* ModelSql.swift */; };
+		8492BE3B23C2890300B24054 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8492BE3A23C288FA00B24054 /* libsqlite3.0.tbd */; };
 		84EAD0FC23C1BEA00021F1B7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EAD0FB23C1BEA00021F1B7 /* RegisterViewController.swift */; };
 		CE9CC6A0DD7E1C1091DC8EC0 /* Pods_TravelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A338922670A8942665E598 /* Pods_TravelTests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +78,10 @@
 		84762A1223C2222900BD3603 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		84762A1423C22C8500BD3603 /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
 		84762A1623C22E3A00BD3603 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
+		8492BE3623C2803B00B24054 /* PostInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfoViewController.swift; sourceTree = "<group>"; };
+		8492BE3823C2874800B24054 /* ModelSql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSql.swift; sourceTree = "<group>"; };
+		8492BE3A23C288FA00B24054 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		8492BE3C23C2895400B24054 /* Travel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Travel-Bridging-Header.h"; sourceTree = "<group>"; };
 		84EAD0FB23C1BEA00021F1B7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B3734912575AD7C5C28047BF /* Pods-TravelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelTests/Pods-TravelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBBA0714B70F98B11C631EAC /* Pods-Travel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travel/Pods-Travel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8492BE3B23C2890300B24054 /* libsqlite3.0.tbd in Frameworks */,
 				6AB8B50FEDB19E2A8F47C81B /* Pods_Travel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +163,7 @@
 				3DDF494723BF583700433FD6 /* Assets.xcassets */,
 				3DDF494C23BF583700433FD6 /* Info.plist */,
 				8413C9CC23C103D8006FAC0F /* GoogleService-Info.plist */,
+				8492BE3C23C2895400B24054 /* Travel-Bridging-Header.h */,
 			);
 			path = Travel;
 			sourceTree = "<group>";
@@ -193,6 +202,7 @@
 				8413C9D423C116A5006FAC0F /* Model.swift */,
 				8413C9D623C11989006FAC0F /* ModelFirebase.swift */,
 				84762A1223C2222900BD3603 /* User.swift */,
+				8492BE3823C2874800B24054 /* ModelSql.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,6 +214,7 @@
 				84EAD0FB23C1BEA00021F1B7 /* RegisterViewController.swift */,
 				84762A1423C22C8500BD3603 /* PostTableViewController.swift */,
 				84762A1623C22E3A00BD3603 /* PostViewCell.swift */,
+				8492BE3623C2803B00B24054 /* PostInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -211,6 +222,7 @@
 		946952E3A52422A183FE980B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8492BE3A23C288FA00B24054 /* libsqlite3.0.tbd */,
 				FCD05976942D3C534C2D522C /* Pods_Travel.framework */,
 				65A338922670A8942665E598 /* Pods_TravelTests.framework */,
 				5B5D7C07CBA11DA56674D856 /* Pods_TravelUITests.framework */,
@@ -290,6 +302,7 @@
 				TargetAttributes = {
 					3DDF493A23BF583500433FD6 = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1120;
 					};
 					3DDF495023BF583700433FD6 = {
 						CreatedOnToolsVersion = 11.1;
@@ -447,11 +460,13 @@
 				8413C9D123C112D3006FAC0F /* WelcomeViewController.swift in Sources */,
 				84EAD0FC23C1BEA00021F1B7 /* RegisterViewController.swift in Sources */,
 				3DDF493F23BF583500433FD6 /* AppDelegate.swift in Sources */,
+				8492BE3723C2803B00B24054 /* PostInfoViewController.swift in Sources */,
 				84762A1723C22E3A00BD3603 /* PostViewCell.swift in Sources */,
 				84762A1523C22C8500BD3603 /* PostTableViewController.swift in Sources */,
 				84762A1323C2222900BD3603 /* User.swift in Sources */,
 				3DDF494123BF583500433FD6 /* SceneDelegate.swift in Sources */,
 				8413C9D723C11989006FAC0F /* ModelFirebase.swift in Sources */,
+				8492BE3923C2874800B24054 /* ModelSql.swift in Sources */,
 				8413C9D323C113C8006FAC0F /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,6 +641,7 @@
 			baseConfigurationReference = DBBA0714B70F98B11C631EAC /* Pods-Travel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Travel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -634,6 +650,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Travel.Travel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Travel/Travel-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -644,6 +662,7 @@
 			baseConfigurationReference = 29B6BD82AE42EE6864258C68 /* Pods-Travel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Travel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -652,6 +671,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Travel.Travel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Travel/Travel-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
