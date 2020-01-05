@@ -17,6 +17,7 @@ class Model{
    // var data = [Post]()
     
     private init(){
+        modelSql.connect()
 //        for i in 0...5{
 //            let post = Post(title: String(i), place: String(i), description: String(i), avatar: "")
 //            addPost(post: post)
