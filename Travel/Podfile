@@ -5,7 +5,10 @@ target 'Travel' do
   use_frameworks!
 
   # Pods for Travel
-
+  
+pod 'Firebase'
+pod 'Firebase/Analytics'
+pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'

@@ -14,7 +14,7 @@ class ModelFirebase{
     
     func addPost(post:Post){
         
-        //let db = Firestore.firestore()
+        let db = Firestore.firestore()
      }
     
      func getAllPosts()->[Post]{
