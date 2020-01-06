@@ -18,7 +18,7 @@ class Model{
     
     private init(){
 //        modelSql.connect()
-//        for i in 0...5{
+//        for i in 0...0{
 //            let post = Post(title: String(i), place: String(i), description: String(i), avatar: "")
 //            addPost(post: post)
 //        }
@@ -30,10 +30,10 @@ class Model{
         modelFirebase.addPost(post: post)
     }
     
-    func getAllPosts()->[Post]{
-        
+    func getAllPosts(callback:@escaping ([Post]?)->Void){
+        modelFirebase.getAllPosts(callback: callback)
         //return modelSql.getAllPosts()
-        return modelFirebase.getAllPosts()
+         //modelFirebase.getAllPosts()
     }
     
     func CreateUser(user:User){

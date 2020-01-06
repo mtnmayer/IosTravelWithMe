@@ -22,4 +22,20 @@ class Post{
         self.place = place
     }
     
+    init(json:[String:Any]){
+        self.title = json["title"] as! String;
+        self.place = json["place"] as! String;
+        self.description = json["description"] as! String
+        self.avatar = json["avatar"] as! String;
+    }
+    
+    func toJson() -> [String:String] {
+        var json = [String:String]();
+        json["title"] = title
+        json["place"] = place
+        json["description"] = description
+        json["avatar"] = avatar
+        return json;
+    }
+    
 }
