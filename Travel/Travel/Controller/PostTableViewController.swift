@@ -15,23 +15,21 @@ class PostTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ModelEvents.postDataEvent.observ {
+            self.reloadData()
+        }
+        
+        reloadData()
+    }
+    
+    func reloadData(){
+        
         Model.instance.getAllPosts { (d_data:[Post]?) in
             if (d_data != nil){
                 self.data = d_data!
                 self.tableView.reloadData()
             }
         }
-//        data = Model.instance.getAllPosts(callback: { (d_data:[Post]?) in
-//            if (d_data != nil){
-//                self.data = d_data
-//                self.tableView.reloadData()
-//            }
-//        })
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Table view data source

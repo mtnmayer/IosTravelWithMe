@@ -16,6 +16,9 @@
 		3DDF496123BF583700433FD6 /* TravelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF496023BF583700433FD6 /* TravelUITests.swift */; };
 		64B389F98D98A7CDBB1C3BFC /* Pods_TravelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5D7C07CBA11DA56674D856 /* Pods_TravelUITests.framework */; };
 		6AB8B50FEDB19E2A8F47C81B /* Pods_Travel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD05976942D3C534C2D522C /* Pods_Travel.framework */; };
+		8403B1C323C4CA2B006A6B10 /* EventNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403B1C223C4CA2B006A6B10 /* EventNotification.swift */; };
+		8403B1C523C4EEA8006A6B10 /* ModelEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403B1C423C4EEA8006A6B10 /* ModelEvents.swift */; };
+		8403B1C723C50EC5006A6B10 /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403B1C623C50EC5006A6B10 /* FirebaseStorage.swift */; };
 		8413C9CD23C103D8006FAC0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8413C9CC23C103D8006FAC0F /* GoogleService-Info.plist */; };
 		8413C9CE23C103D8006FAC0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8413C9CC23C103D8006FAC0F /* GoogleService-Info.plist */; };
 		8413C9CF23C103D8006FAC0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8413C9CC23C103D8006FAC0F /* GoogleService-Info.plist */; };
@@ -71,6 +74,9 @@
 		5B5D7C07CBA11DA56674D856 /* Pods_TravelUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A338922670A8942665E598 /* Pods_TravelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE6C5432CE8D217E380B421 /* Pods-TravelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelUITests/Pods-TravelUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8403B1C223C4CA2B006A6B10 /* EventNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNotification.swift; sourceTree = "<group>"; };
+		8403B1C423C4EEA8006A6B10 /* ModelEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelEvents.swift; sourceTree = "<group>"; };
+		8403B1C623C50EC5006A6B10 /* FirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
 		8413C9CC23C103D8006FAC0F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8413C9D023C112D3006FAC0F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8413C9D223C113C8006FAC0F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -205,6 +211,9 @@
 				8413C9D623C11989006FAC0F /* ModelFirebase.swift */,
 				84762A1223C2222900BD3603 /* User.swift */,
 				8492BE3823C2874800B24054 /* ModelSql.swift */,
+				8403B1C223C4CA2B006A6B10 /* EventNotification.swift */,
+				8403B1C423C4EEA8006A6B10 /* ModelEvents.swift */,
+				8403B1C623C50EC5006A6B10 /* FirebaseStorage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -450,11 +459,14 @@
 				8416C69B23C3EC5B002A4F40 /* NewPostViewController.swift in Sources */,
 				8413C9D123C112D3006FAC0F /* WelcomeViewController.swift in Sources */,
 				84EAD0FC23C1BEA00021F1B7 /* RegisterViewController.swift in Sources */,
+				8403B1C523C4EEA8006A6B10 /* ModelEvents.swift in Sources */,
 				3DDF493F23BF583500433FD6 /* AppDelegate.swift in Sources */,
+				8403B1C723C50EC5006A6B10 /* FirebaseStorage.swift in Sources */,
 				8492BE3723C2803B00B24054 /* PostInfoViewController.swift in Sources */,
 				84762A1723C22E3A00BD3603 /* PostViewCell.swift in Sources */,
 				84762A1523C22C8500BD3603 /* PostTableViewController.swift in Sources */,
 				84762A1323C2222900BD3603 /* User.swift in Sources */,
+				8403B1C323C4CA2B006A6B10 /* EventNotification.swift in Sources */,
 				3DDF494123BF583500433FD6 /* SceneDelegate.swift in Sources */,
 				8413C9D723C11989006FAC0F /* ModelFirebase.swift in Sources */,
 				8492BE3923C2874800B24054 /* ModelSql.swift in Sources */,

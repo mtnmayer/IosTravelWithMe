@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Model{
     
@@ -35,6 +36,11 @@ class Model{
         //return modelSql.getAllPosts()
          //modelFirebase.getAllPosts()
     }
+    
+    func saveImage(image:UIImage, callback: @escaping (String)->Void){
+        FirebaseStorage.saveImage(image: image, callback: callback)
+    }
+                                                          
     
     func CreateUser(user:User){
         
