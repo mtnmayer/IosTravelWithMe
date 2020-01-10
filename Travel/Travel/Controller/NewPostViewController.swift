@@ -10,6 +10,9 @@ import UIKit
 
 class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
     
+    @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var chooseBtn: UIButton!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var avatarImg: UIImageView!
     @IBOutlet weak var titleTexField: UITextField!
     @IBOutlet weak var placeTextField: UITextField!
@@ -22,6 +25,8 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         titleTexField.delegate = self
         placeTextField.delegate = self
         descriptionText.delegate = self
+        
+        activity.isHidden = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField!)->Bool{
@@ -43,14 +48,21 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     var selectedImage: UIImage?
     
     @IBAction func postBtn(_ sender: UIButton) {
+        var post = Post(title: self.titleTexField.text!, place: self.placeTextField.text!, description: self.descriptionText.text!, avatar: "")
+        
         if let selectedImage = selectedImage{
+            activity.isHidden = false
+            saveBtn.isEnabled = false
+            chooseBtn.isEnabled = false
+            
             Model.instance.saveImage(image: selectedImage) { (url) in
-                let post = Post(title: self.titleTexField.text!, place: self.placeTextField.text!, description: self.descriptionText.text!, avatar: url)
+                post.avatar = url
                 Model.instance.addPost(post: post)
                 self.navigationController?.popViewController(animated: true)
             }
-            
         }
+        Model.instance.addPost(post: post)
+        self.navigationController?.popViewController(animated: true)
     }
     
     
