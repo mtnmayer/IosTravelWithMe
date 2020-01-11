@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostTableViewController: UITableViewController {
     
@@ -15,20 +16,24 @@ class PostTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.refreshControl = UIRefreshControl()
+         self.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+        
         ModelEvents.postDataEvent.observ {
             self.reloadData()
         }
-        
+        self.refreshControl?.beginRefreshing()
         reloadData()
     }
     
-    func reloadData(){
+    @objc func reloadData(){
         
         Model.instance.getAllPosts { (d_data:[Post]?) in
             if (d_data != nil){
                 self.data = d_data!
                 self.tableView.reloadData()
             }
+            self.refreshControl?.endRefreshing()
         }
     }
     
@@ -53,6 +58,9 @@ class PostTableViewController: UITableViewController {
         cell.titleLabel.text = post.title
         cell.placeLabel.text = post.place
         cell.avatar.image = UIImage(named: "avatar")
+        if (post.avatar != ""){
+            cell.avatar.kf.setImage(with: URL(string: post.avatar))
+        }
         return cell
     }
     

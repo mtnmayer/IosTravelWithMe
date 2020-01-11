@@ -25,6 +25,9 @@ class PostInfoViewController: UIViewController {
         placeLabel.text = post?.place
         descriptionLabel.text = post?.description
         avatarImg.image = UIImage(named: "avatar")
+        if(post?.avatar != ""){
+            avatarImg.kf.setImage(with: URL(string: post!.avatar))
+        }
     }
     
 
