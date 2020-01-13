@@ -13,16 +13,14 @@ class Model{
     
     static let instance = Model()
     
-   // var modelSql:ModelSql = ModelSql()
+    var modelSql:ModelSql = ModelSql()
     var modelFirebase:ModelFirebase = ModelFirebase()
    // var data = [Post]()
     
     private init(){
-//        modelSql.connect()
-//        for i in 0...0{
-//            let post = Post(title: String(i), place: String(i), description: String(i), avatar: "")
-//            addPost(post: post)
-//        }
+        modelSql.setLastUpdate(name: "POSTS", lastUpdated: 12)
+        let lud = modelSql.getLastUpdateDate(name: "POSTS")
+        print("\(lud)")
     }
     
     func addPost(post:Post){
@@ -32,7 +30,9 @@ class Model{
     }
     
     func getAllPosts(callback:@escaping ([Post]?)->Void){
-        modelFirebase.getAllPosts(callback: callback)
+        
+        let lud = modelSql.getLastUpdateDate(name: "POSTS")
+      //  modelFirebase.getAllPosts(since: <#T##Int64#>, callback: <#T##([Post]?) -> Void#>,callback: callback)
         //return modelSql.getAllPosts()
          //modelFirebase.getAllPosts()
     }

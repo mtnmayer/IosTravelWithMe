@@ -1,0 +1,28 @@
+ platform :ios, '11.0'
+
+target 'TravelMe' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for TravelMe
+  
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'Kingfisher', '~> 5.0'
+
+  target 'TravelMeTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'TravelMeUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

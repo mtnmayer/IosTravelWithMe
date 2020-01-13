@@ -28,15 +28,22 @@ class ModelFirebase{
         }
     }
     
-    func getAllPosts(callback:@escaping ([Post]?)->Void){
+    func getAllPosts(since:Int64, callback:@escaping ([Post]?)->Void){
         let db = Firestore.firestore()
 
-        db.collection("posts").getDocuments() { (querySnapshot, err) in
+        db.collection("posts").order(by: "lastUpdate").start(at: [Timestamp(seconds: since, nanoseconds: 0)]).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
+                callback(nil)
             } else {
                 var data = [Post]()
                 for document in querySnapshot!.documents {
+                    if let ts = document.data()["lastUpdate"] as? Timestamp{
+                        let tsDate = ts.dateValue()
+                        print("\(tsDate)")
+                        let tsDouble = tsDate.timeIntervalSince1970
+                        print("\(tsDouble)")
+                    }
                     //print("\(document.documentID) => \(document.data())")
                     data.append(Post(json:document.data()))
                 }
