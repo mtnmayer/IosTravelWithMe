@@ -34,11 +34,6 @@ class RegisterViewController: UIViewController {
         
         let user = User(email: emailText.text!, pass: passwordText.text!)
         Model.instance.CreateUser(user: user)
-        performSegue(withIdentifier: "goToHomePageSegue", sender: self)
-        
-        
-        
-        
-        
+        performSegue(withIdentifier: "goToWelcomeSegue", sender: self)
     }
 }

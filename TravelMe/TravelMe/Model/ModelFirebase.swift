@@ -82,7 +82,41 @@ class ModelFirebase{
             }
             else{
                 print("Registration Successful!!")
-                //performSegue(withIdentifier: "goToHomePageSegue", sender: self)
+                //performSegue(withIdentifier: "goToRegisterSegue", sender: self)
+            }
+        }
+    }
+    
+    func loginUser(email:String, password:String, callback:@escaping (String)->Void){
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil{
+                print(error!)
+                callback("wrong")
+            }else{
+                print("Log in successful!")
+                var user = Auth.auth().currentUser
+                if let user = user{
+                    let email = user.email
+                }
+                callback(email)
+            }
+        }
+    }
+    
+    func loginUserwithOutCallback(email:String, password:String){
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil{
+                print(error!)
+                ModelEvents.loginEvent.post(data: "wrong")
+            }else{
+                print("Log in successful!")
+                var user = Auth.auth().currentUser
+                if let user = user{
+                    let email = user.email
+                }
+                ModelEvents.loginEvent.post(data: email)
             }
         }
     }

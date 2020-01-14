@@ -58,7 +58,15 @@ class Model{
         
         modelFirebase.createUser(email: user.email, password: user.password)
         
-        
     }
     
+    func loginUser(user:User, callback: @escaping (String)->Void){
+    modelFirebase.loginUser(email:user.email, password:user.password, callback: callback)
+    }
+    
+    func loginUserwithOutCallback(user:User){
+        
+         modelFirebase.loginUserwithOutCallback(email: user.email, password: user.password)
+        
+    }
 }

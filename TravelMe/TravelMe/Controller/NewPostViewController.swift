@@ -29,6 +29,10 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         activity.isHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        descriptionText.borderStyle = UITextField.BorderStyle.roundedRect
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField!)->Bool{
         textField.resignFirstResponder()
         return true
@@ -89,6 +93,11 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.avatarImg.image = selectedImage
         dismiss(animated: true, completion: nil)
     }
+    
+    func configureTextView(){
+        
+        
+       }
     
 }
 

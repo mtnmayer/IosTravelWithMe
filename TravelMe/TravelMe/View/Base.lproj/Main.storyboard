@@ -26,7 +26,7 @@
         <!--Welcome-->
         <scene sceneID="Jxn-ZP-IuS">
             <objects>
-                <viewController id="6r2-gD-Vbh" customClass="WelcomeViewController" customModule="TravelMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Me" id="6r2-gD-Vbh" customClass="WelcomeViewController" customModule="TravelMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MIK-HE-gdc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
                                 <color key="backgroundColor" red="0.18039215689999999" green="0.69411764710000001" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="EpD-f8-HMY" kind="show" identifier="goToHomepageSegue" id="fbA-oS-U44"/>
+                                    <action selector="loginBtn:" destination="6r2-gD-Vbh" eventType="touchUpInside" id="uSv-KW-p88"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fP-nB-cjR">
@@ -50,14 +50,14 @@
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.35686274509999999" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="eL3-2R-9a5" kind="show" id="DWf-r4-kyA"/>
+                                    <segue destination="eL3-2R-9a5" kind="show" identifier="goToRegisterSegue" id="DWf-r4-kyA"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qcp-Nn-869">
                                 <rect key="frame" x="73" y="535" width="268" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3gq-GD-DJ9">
                                 <rect key="frame" x="73" y="474" width="268" height="34"/>
@@ -65,14 +65,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Eqt-QP-Wmk">
+                                <rect key="frame" x="175" y="362" width="64" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="5Xl-Bj-cew"/>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="6iY-dl-6Dg"/>
                     <connections>
+                        <outlet property="activity" destination="Eqt-QP-Wmk" id="6GJ-gB-DMT"/>
                         <outlet property="emailText" destination="3gq-GD-DJ9" id="kyy-YI-KdR"/>
                         <outlet property="passwordText" destination="Qcp-Nn-869" id="t3N-n4-fl0"/>
+                        <segue destination="EpD-f8-HMY" kind="show" identifier="goToHomeSegue" id="ULt-9t-zns"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNJ-v6-Hx0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -82,7 +88,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="R45-Kq-I32">
             <objects>
-                <tabBarController id="EpD-f8-HMY" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="PostTableView" id="EpD-f8-HMY" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="NiV-Zt-fEi">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OJH-17-yJL">
                             <connections>
@@ -269,7 +275,7 @@
                                 <connections>
                                     <action selector="registerBtn:" destination="GOJ-V3-su8" eventType="touchUpInside" id="5CP-U3-zuL"/>
                                     <action selector="registerBtn:" destination="eL3-2R-9a5" eventType="touchUpInside" id="oXM-Sf-HqH"/>
-                                    <segue destination="EpD-f8-HMY" kind="show" identifier="goToHomePageSegue" id="cLp-Zh-0WE"/>
+                                    <segue destination="EpD-f8-HMY" kind="show" identifier="goToWelcomeSegue" id="cLp-Zh-0WE"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TSy-ih-wIj">
@@ -282,7 +288,7 @@
                                 <rect key="frame" x="93" y="431" width="229" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -352,9 +358,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wMs-qr-ShB">
-                                <rect key="frame" x="118" y="473" width="271" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wMs-qr-ShB">
+                                <rect key="frame" x="118" y="473" width="271" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -397,6 +403,6 @@
         <image name="square.and.arrow.up.fill" catalog="system" width="56" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cLp-Zh-0WE"/>
+        <segue reference="ULt-9t-zns"/>
     </inferredMetricsTieBreakers>
 </document>

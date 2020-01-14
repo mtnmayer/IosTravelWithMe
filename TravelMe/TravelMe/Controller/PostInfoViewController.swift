@@ -41,4 +41,7 @@ class PostInfoViewController: UIViewController {
     }
     */
 
+    func configureTextView(){
+        
+    }
 }
