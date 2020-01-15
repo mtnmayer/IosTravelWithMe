@@ -16,7 +16,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background3")!)
         // Do any additional setup after loading the view.
         activity.isHidden = true
         
@@ -58,6 +58,7 @@ class WelcomeViewController: UIViewController {
                 //                let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 //                let secondVc = storyboard.instantiateViewController(identifier: "PostTableView")
                 //                self.present(secondVc, animated: true, completion: nil)
+                Post.userEmail = email
                 self.performSegue(withIdentifier: "goToHomeSegue", sender: self)
 
             }

@@ -75,7 +75,7 @@ class ModelSql{
                 let description = String(cString:sqlite3_column_text(sqlite3_stmt,2)!)
                 let avatar = String(cString:sqlite3_column_text(sqlite3_stmt,3)!)
                 
-                data.append(Post(title: title, place: place, description: description, avatar: avatar))
+                data.append(Post(title: title, place: place, description: description, avatar: avatar, email: Post.userEmail))
             }
         }
         sqlite3_finalize(sqlite3_stmt)

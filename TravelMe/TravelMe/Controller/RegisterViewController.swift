@@ -42,6 +42,7 @@ class RegisterViewController: UIViewController {
             if(email == "wrong"){
                 Utilities().showAlert(title: "Error", message: "try again", vc: self)
             }else{
+                Post.userEmail = email
                 self.performSegue(withIdentifier: "goToWelcomeSegue", sender: self)
             }
         }

@@ -16,13 +16,15 @@ class Post{
     var description:String = ""
     var avatar:String = ""
     var lastUpdate: Int64?
-    var userEmail:String = ""
+    var email:String = ""
+   static var userEmail:String = ""
     
-    init(title:String,place:String, description:String, avatar:String) {
+    init(title:String,place:String, description:String, avatar:String, email:String) {
         self.title = title
         self.description = description
         self.avatar = avatar
         self.place = place
+        self.email = email
     }
     
     init(json:[String:Any]){
@@ -30,6 +32,7 @@ class Post{
         self.place = json["place"] as! String;
         self.description = json["description"] as! String
         self.avatar = json["avatar"] as! String;
+        self.email = Post.userEmail
         let ts = json["lastUpdate"] as! Timestamp
         lastUpdate = ts.seconds
     }
@@ -40,8 +43,12 @@ class Post{
         json["place"] = place
         json["description"] = description
         json["avatar"] = avatar
+        json["email"] = email
         json["lastUpdate"] = FieldValue.serverTimestamp()
         return json;
     }
     
+    static func setUserEmail(){
+        
+    }
 }
