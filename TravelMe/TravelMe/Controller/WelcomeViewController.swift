@@ -19,6 +19,13 @@ class WelcomeViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         activity.isHidden = true
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(WelcomeViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
     }
     
     

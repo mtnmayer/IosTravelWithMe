@@ -27,16 +27,21 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         descriptionText.delegate = self
         
         activity.isHidden = true
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(WelcomeViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        descriptionText.borderStyle = UITextField.BorderStyle.roundedRect
-    }
+    @objc func dismissKeyboard(){
+           view.endEditing(true)
+       }
     
-    func textFieldShouldReturn(_ textField: UITextField!)->Bool{
-        textField.resignFirstResponder()
-        return true
-    }
+   
+    
+//    func textFieldShouldReturn(_ textField: UITextField!)->Bool{
+//        textField.resignFirstResponder()
+//        return true
+//    }
     
     
     /*
