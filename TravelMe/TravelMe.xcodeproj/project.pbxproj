@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DBBB50306BD701E92E70251 /* Pods_TravelMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2732471879BA9C645840939C /* Pods_TravelMe.framework */; };
+		84822A6023CEEC3B00206948 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84822A5F23CEEC3B00206948 /* Utilities.swift */; };
 		84A4A0F423CCE7C300B890AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A0F323CCE7C300B890AD /* AppDelegate.swift */; };
 		84A4A0F623CCE7C300B890AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A0F523CCE7C300B890AD /* SceneDelegate.swift */; };
 		84A4A0FB23CCE7C300B890AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A4A0F923CCE7C300B890AD /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		1D55DDBB6667DA3F86791598 /* Pods-TravelMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMeUITests.release.xcconfig"; path = "Target Support Files/Pods-TravelMeUITests/Pods-TravelMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2732471879BA9C645840939C /* Pods_TravelMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A800E4C66CB202B22D45F08 /* Pods_TravelMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84822A5F23CEEC3B00206948 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		84A4A0F023CCE7C300B890AD /* TravelMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A4A0F323CCE7C300B890AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A4A0F523CCE7C300B890AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		84822A5E23CEEBBE00206948 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				84822A5F23CEEC3B00206948 /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		84A4A0E723CCE7C300B890AD = {
 			isa = PBXGroup;
 			children = (
@@ -167,15 +177,16 @@
 		84A4A0F223CCE7C300B890AD /* TravelMe */ = {
 			isa = PBXGroup;
 			children = (
+				84822A5E23CEEBBE00206948 /* Utilities */,
 				84A4A12823CCEA6900B890AD /* Controller */,
 				84A4A12723CCEA5A00B890AD /* Model */,
 				84A4A12623CCEA4700B890AD /* View */,
 				84A4A0F323CCE7C300B890AD /* AppDelegate.swift */,
-				84A4A0F523CCE7C300B890AD /* SceneDelegate.swift */,
-				84A4A0FC23CCE7C700B890AD /* Assets.xcassets */,
 				84A4A10123CCE7C700B890AD /* Info.plist */,
-				84A4A14B23CCF29C00B890AD /* GoogleService-Info.plist */,
+				84A4A0FC23CCE7C700B890AD /* Assets.xcassets */,
 				84A4A14523CCEC0100B890AD /* TravelMe-Bridging-Header.h */,
+				84A4A14B23CCF29C00B890AD /* GoogleService-Info.plist */,
+				84A4A0F523CCE7C300B890AD /* SceneDelegate.swift */,
 			);
 			path = TravelMe;
 			sourceTree = "<group>";
@@ -476,6 +487,7 @@
 				84A4A12A23CCEAAC00B890AD /* WelcomeViewController.swift in Sources */,
 				84A4A0F423CCE7C300B890AD /* AppDelegate.swift in Sources */,
 				84A4A13823CCEB6600B890AD /* Model.swift in Sources */,
+				84822A6023CEEC3B00206948 /* Utilities.swift in Sources */,
 				84A4A13E23CCEBA900B890AD /* EventNotificationBase.swift in Sources */,
 				84A4A14A23CCED0700B890AD /* User.swift in Sources */,
 				84A4A13423CCEB3300B890AD /* NewPostViewController.swift in Sources */,

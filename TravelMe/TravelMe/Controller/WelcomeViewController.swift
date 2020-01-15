@@ -47,12 +47,13 @@ class WelcomeViewController: UIViewController {
     @IBAction func loginBtn(_ sender: UIButton) {
         
         let user = User(email: emailText.text!, pass: passwordText.text!)
-        activity.isHidden = false
+        //activity.isHidden = false
          //Model.instance.CreateUser(user: user)
         Model.instance.loginUser(user: user) { (email) in
             if (email == "wrong"){
                 //                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Me")
                 //                self.navigationController?.present(vc!, animated: true, completion: nil)
+                Utilities().showAlert(title: "Error", message: "try again", vc: self)
             }else{
                 //                let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 //                let secondVc = storyboard.instantiateViewController(identifier: "PostTableView")
