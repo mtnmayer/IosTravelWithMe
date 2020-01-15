@@ -72,17 +72,24 @@ class ModelFirebase{
     }
     
     
-    func createUser(email:String, password:String){
+    func createUser(email:String, password:String, callback: @escaping (String)->Void){
         
         //TODO: Set up a new user on our Firbase database
         Auth.auth().createUser(withEmail: email, password: password) {
             (user, error) in
             if error != nil{
                 print(error!)
+                callback("wrong")
             }
             else{
                 print("Registration Successful!!")
                 //performSegue(withIdentifier: "goToRegisterSegue", sender: self)
+                print("Log in successful!")
+                var user = Auth.auth().currentUser
+                if let user = user{
+                    let email = user.email
+                }
+                callback(email)
             }
         }
     }

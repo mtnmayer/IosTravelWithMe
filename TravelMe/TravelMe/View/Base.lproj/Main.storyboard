@@ -275,7 +275,6 @@
                                 <connections>
                                     <action selector="registerBtn:" destination="GOJ-V3-su8" eventType="touchUpInside" id="5CP-U3-zuL"/>
                                     <action selector="registerBtn:" destination="eL3-2R-9a5" eventType="touchUpInside" id="oXM-Sf-HqH"/>
-                                    <segue destination="EpD-f8-HMY" kind="show" identifier="goToWelcomeSegue" id="cLp-Zh-0WE"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TSy-ih-wIj">
@@ -298,6 +297,7 @@
                     <connections>
                         <outlet property="emailText" destination="TSy-ih-wIj" id="sMd-1B-jqF"/>
                         <outlet property="passwordText" destination="fGr-6g-T7n" id="svH-Qa-aDK"/>
+                        <segue destination="EpD-f8-HMY" kind="show" identifier="goToWelcomeSegue" id="mEH-nu-Qgu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mH-sg-B2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -403,6 +403,6 @@
         <image name="square.and.arrow.up.fill" catalog="system" width="56" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ULt-9t-zns"/>
+        <segue reference="mEH-nu-Qgu"/>
     </inferredMetricsTieBreakers>
 </document>

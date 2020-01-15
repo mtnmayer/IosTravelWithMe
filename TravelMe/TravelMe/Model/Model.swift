@@ -54,9 +54,9 @@ class Model{
     }
                                                           
     
-    func CreateUser(user:User){
+    func CreateUser(user:User, callback: @escaping (String)->Void){
         
-        modelFirebase.createUser(email: user.email, password: user.password)
+        modelFirebase.createUser(email: user.email, password: user.password, callback:callback)
         
     }
     
