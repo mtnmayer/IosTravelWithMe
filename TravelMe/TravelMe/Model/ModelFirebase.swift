@@ -51,11 +51,12 @@ class ModelFirebase{
             }
         }
     }
+    var postID:String?
     
-    func getAllPosts(callback:@escaping ([Post]?)->Void){
+    func getMyPosts(callback:@escaping ([Post]?)->Void){
         let db = Firestore.firestore()
         
-        db.collection("posts").getDocuments() { (querySnapshot, err) in
+        db.collection("posts").order(by: "email").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 callback(nil)
@@ -63,10 +64,37 @@ class ModelFirebase{
                 var data = [Post]()
                 for document in querySnapshot!.documents {
                     data.append(Post(json:document.data()))
+                   // print("\(document.documentID) => \(document.data())")
+                    //self.postID = document.documentID
+                    data[0].postID = document.documentID
                 }
-                //print("\(document.documentID) => \(document.data())")
                 callback(data)
-                
+            }
+        }
+    }
+    
+    func deleteMyPost(postID:String){
+        let db = Firestore.firestore()
+        
+        db.collection("posts").document(postID).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
+    
+    func updateMyPost(postId:String, post:Post){
+        let db = Firestore.firestore()
+        let postRef = db.collection("posts").document(postId)
+
+        // Set the "capital" field of the city 'DC'
+        postRef.updateData(post.toJson()) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
             }
         }
     }

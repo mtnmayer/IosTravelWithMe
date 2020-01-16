@@ -10,6 +10,7 @@
 		1DBBB50306BD701E92E70251 /* Pods_TravelMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2732471879BA9C645840939C /* Pods_TravelMe.framework */; };
 		3D04446E23CF834700CC7F00 /* MyPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04446D23CF834700CC7F00 /* MyPostTableViewController.swift */; };
 		3D04447023CF870600CC7F00 /* MyPostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04446F23CF870600CC7F00 /* MyPostViewCell.swift */; };
+		842E46B823D0E86200B03B11 /* EditMyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E46B723D0E86200B03B11 /* EditMyPostViewController.swift */; };
 		84822A6023CEEC3B00206948 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84822A5F23CEEC3B00206948 /* Utilities.swift */; };
 		84A4A0F423CCE7C300B890AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A0F323CCE7C300B890AD /* AppDelegate.swift */; };
 		84A4A0F623CCE7C300B890AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A0F523CCE7C300B890AD /* SceneDelegate.swift */; };
@@ -63,6 +64,7 @@
 		3D04446D23CF834700CC7F00 /* MyPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableViewController.swift; sourceTree = "<group>"; };
 		3D04446F23CF870600CC7F00 /* MyPostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewCell.swift; sourceTree = "<group>"; };
 		5A800E4C66CB202B22D45F08 /* Pods_TravelMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		842E46B723D0E86200B03B11 /* EditMyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPostViewController.swift; sourceTree = "<group>"; };
 		84822A5F23CEEC3B00206948 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		84A4A0F023CCE7C300B890AD /* TravelMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A4A0F323CCE7C300B890AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				84A4A13323CCEB3300B890AD /* NewPostViewController.swift */,
 				3D04446D23CF834700CC7F00 /* MyPostTableViewController.swift */,
 				3D04446F23CF870600CC7F00 /* MyPostViewCell.swift */,
+				842E46B723D0E86200B03B11 /* EditMyPostViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				84A4A14423CCEBD300B890AD /* EventNotificationBaseWithObj.swift in Sources */,
 				84A4A13A23CCEB7900B890AD /* ModelFirebase.swift in Sources */,
 				3D04446E23CF834700CC7F00 /* MyPostTableViewController.swift in Sources */,
+				842E46B823D0E86200B03B11 /* EditMyPostViewController.swift in Sources */,
 				84A4A13623CCEB5500B890AD /* Post.swift in Sources */,
 				84A4A14223CCEBC500B890AD /* FirebaseStorage.swift in Sources */,
 				84A4A0F623CCE7C300B890AD /* SceneDelegate.swift in Sources */,

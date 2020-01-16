@@ -49,6 +49,19 @@ class Model{
       //  modelFirebase.getAllPosts(callback: callback)
     }
     
+    func getMyPosts(callback:@escaping ([Post]?)->Void){
+        
+        modelFirebase.getMyPosts(callback: callback)
+    }
+    
+    func deleteMyPost(postID:String){
+        modelFirebase.deleteMyPost(postID: postID)
+    }
+    
+    func updateMyPost(postId:String, post:Post){
+        modelFirebase.updateMyPost(postId: postId, post: post)
+    }
+    
     func saveImage(image:UIImage, callback: @escaping (String)->Void){
         FirebaseStorage.saveImage(image: image, callback: callback)
     }

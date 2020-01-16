@@ -17,7 +17,8 @@ class Post{
     var avatar:String = ""
     var lastUpdate: Int64?
     var email:String = ""
-   static var userEmail:String = ""
+    var postID:String?
+    static var userEmail:String = ""
     
     init(title:String,place:String, description:String, avatar:String, email:String) {
         self.title = title
@@ -46,9 +47,5 @@ class Post{
         json["email"] = email
         json["lastUpdate"] = FieldValue.serverTimestamp()
         return json;
-    }
-    
-    static func setUserEmail(){
-        
     }
 }
