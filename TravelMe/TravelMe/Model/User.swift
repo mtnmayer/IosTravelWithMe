@@ -13,7 +13,7 @@ class User{
     
     var email:String = ""
     var password:String = ""
-    static var postEmail = ""
+    //static var postEmail = ""
     
     init(email:String, pass:String){
         self.email = email

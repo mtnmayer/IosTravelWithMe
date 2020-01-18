@@ -56,6 +56,7 @@ class Model{
     
     func deleteMyPost(postID:String){
         modelFirebase.deleteMyPost(postID: postID)
+        modelSql.delete(postId: postID)
     }
     
     func updateMyPost(postId:String, post:Post){

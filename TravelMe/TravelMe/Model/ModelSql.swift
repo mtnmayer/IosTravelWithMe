@@ -18,19 +18,22 @@ class ModelSql{
         if let dir = FileManager.default.urls(for: .documentDirectory, in:
             .userDomainMask).first{
             let path = dir.appendingPathComponent(dbFileName)
+            print(path.absoluteString)
+            print(path)
             if sqlite3_open(path.absoluteString, &database) != SQLITE_OK {
                 print("Failed to open db file: \(path.absoluteString)")
                 return
             }
         }
         create()
+        
     }
     
     func create(){
         
         var errormsg: UnsafeMutablePointer<Int8>? = nil
         
-        var res = sqlite3_exec(database, "CREATE TABLE IF NOT EXISTS POSTS (ST_ID TEXT PRIMARY KEY, TITLE TEXT,PLACE TEXT, DESCRIPTION TEXT, AVATAR TEXT)", nil, nil, &errormsg);
+        var res = sqlite3_exec(database, "CREATE TABLE IF NOT EXISTS POSTS (POSTID TEXT PRIMARY KEY, TITLE TEXT,PLACE TEXT, DESCRIPTION TEXT, AVATAR TEXT, EMAIL TEXT)", nil, nil, &errormsg);
         if(res != 0){
             print("error creating table");
             return
@@ -47,16 +50,20 @@ class ModelSql{
     func addPost(post:Post){
         
         var sqlite3_stmt: OpaquePointer? = nil
-        if (sqlite3_prepare_v2(database,"INSERT OR REPLACE INTO POSTS(ST_ID, TITLE, PLACE, DESCRIPTION, AVATAR) VALUES (?,?,?,?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
+        if (sqlite3_prepare_v2(database,"INSERT OR REPLACE INTO POSTS(POSTID, TITLE, PLACE, DESCRIPTION, AVATAR, EMAIL) VALUES (?,?,?,?,?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
+            let postId = post.postId!.cString(using: .utf8)
             let title = post.title.cString(using: .utf8)
             let place = post.place.cString(using: .utf8)
             let description = post.description.cString(using: .utf8)
             let avatar = post.avatar.cString(using: .utf8)
+            let email = post.email.cString(using: .utf8)
             
-            sqlite3_bind_text(sqlite3_stmt, 1, title,-1,nil);
-            sqlite3_bind_text(sqlite3_stmt, 2, place,-1,nil);
-            sqlite3_bind_text(sqlite3_stmt, 3, description,-1,nil);
-            sqlite3_bind_text(sqlite3_stmt, 4, avatar,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 1, postId,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 2, title,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 3, place,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 4, description,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 5, avatar,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 6, email,-1,nil);
             
             if(sqlite3_step(sqlite3_stmt) == SQLITE_DONE){
                 print("new row added succefully")
@@ -70,12 +77,14 @@ class ModelSql{
         var data = [Post]()
         if (sqlite3_prepare_v2(database,"SELECT * from POSTS;",-1,&sqlite3_stmt,nil) == SQLITE_OK){
             while(sqlite3_step(sqlite3_stmt) == SQLITE_ROW){
-                let title = String(cString:sqlite3_column_text(sqlite3_stmt,0)!)
-                let place = String(cString:sqlite3_column_text(sqlite3_stmt,1)!)
-                let description = String(cString:sqlite3_column_text(sqlite3_stmt,2)!)
-                let avatar = String(cString:sqlite3_column_text(sqlite3_stmt,3)!)
+                 let postId = String(cString:sqlite3_column_text(sqlite3_stmt,0)!)
+                let title = String(cString:sqlite3_column_text(sqlite3_stmt,1)!)
+                let place = String(cString:sqlite3_column_text(sqlite3_stmt,2)!)
+                let description = String(cString:sqlite3_column_text(sqlite3_stmt,3)!)
+                let avatar = String(cString:sqlite3_column_text(sqlite3_stmt,4)!)
+                 let email = String(cString:sqlite3_column_text(sqlite3_stmt,5)!)
                 
-                data.append(Post(title: title, place: place, description: description, avatar: avatar, email: Post.userEmail))
+                data.append(Post(title: title, place: place, description: description, avatar: avatar, email: email))
             }
         }
         sqlite3_finalize(sqlite3_stmt)
@@ -107,6 +116,26 @@ class ModelSql{
         }
         sqlite3_finalize(sqlite3_stmt)
         return date
+    }
+    
+    func delete(postId:String){
+        let deleteStatementString = "DELETE FROM POSTS where PRIMARY KEY = \(postId);"
+        print(deleteStatementString)
+        print("DELETE FROM POSTS where POSTID = " + postId + ";")
+        var sqlite3_stmt: OpaquePointer? = nil
+        
+        if (sqlite3_prepare_v2(database,"DELETE FROM POSTS where POSTID = \(postId);", -1, &sqlite3_stmt, nil) == SQLITE_OK) {
+            sqlite3_bind_text(sqlite3_stmt, 1, postId, -1, nil)
+          if sqlite3_step(sqlite3_stmt) == SQLITE_DONE {
+            print("\nSuccessfully deleted row.")
+          } else {
+            print("\nCould not delete row.")
+          }
+        } else {
+          print("\nDELETE statement could not be prepared")
+        }
+        
+        sqlite3_finalize(sqlite3_stmt)
     }
 }
 

@@ -17,7 +17,8 @@ class Post{
     var avatar:String = ""
     var lastUpdate: Int64?
     var email:String = ""
-    var postID:String?
+    var postId:String?
+    static var postID:String?
     static var userEmail:String = ""
     
     init(title:String,place:String, description:String, avatar:String, email:String) {
@@ -26,6 +27,7 @@ class Post{
         self.avatar = avatar
         self.place = place
         self.email = email
+        //self.postId = postId
     }
     
     init(json:[String:Any]){
@@ -34,6 +36,7 @@ class Post{
         self.description = json["description"] as! String
         self.avatar = json["avatar"] as! String;
         self.email = Post.userEmail
+        self.postId = Post.postID
         let ts = json["lastUpdate"] as! Timestamp
         lastUpdate = ts.seconds
     }
@@ -45,7 +48,12 @@ class Post{
         json["description"] = description
         json["avatar"] = avatar
         json["email"] = email
+        json["postId"] = postId
         json["lastUpdate"] = FieldValue.serverTimestamp()
         return json;
+    }
+    
+    func setPostId(postID:String){
+        self.postId = postID
     }
 }

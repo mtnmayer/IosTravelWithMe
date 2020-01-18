@@ -19,6 +19,9 @@ class MyPostTableViewController: UITableViewController , myPostCellDelegate{
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         
+        ModelEvents.postDataEvent.observ {
+            self.reloadData()
+        }
         self.refreshControl?.beginRefreshing()
         reloadData()
     }
@@ -89,7 +92,7 @@ class MyPostTableViewController: UITableViewController , myPostCellDelegate{
     }
     
     func deletePost(index: Int) {
-        Model.instance.deleteMyPost(postID: data[index].postID!)
+        Model.instance.deleteMyPost(postID: data[index].postId!)
         reloadData()
     }
     

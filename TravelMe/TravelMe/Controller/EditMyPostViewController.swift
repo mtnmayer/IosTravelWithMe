@@ -33,7 +33,7 @@ class EditMyPostViewController: UIViewController, UIImagePickerControllerDelegat
             avatarImg.kf.setImage(with: URL(string: post!.avatar))
         }
         
-        postId = post!.postID!
+        postId = post!.postId!
         
         activity.isHidden = true
         
