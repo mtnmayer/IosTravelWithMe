@@ -13,6 +13,7 @@ class Model{
     
     static let instance = Model()
     
+    let weatherDataModel = WeatherDataModel()
     var modelSql:ModelSql = ModelSql()
     var modelFirebase:ModelFirebase = ModelFirebase()
     // var data = [Post]()

@@ -36,6 +36,7 @@
 		84A4A14423CCEBD300B890AD /* EventNotificationBaseWithObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A14323CCEBD300B890AD /* EventNotificationBaseWithObj.swift */; };
 		84A4A14A23CCED0700B890AD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A14923CCED0700B890AD /* User.swift */; };
 		84A4A14C23CCF29C00B890AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A4A14B23CCF29C00B890AD /* GoogleService-Info.plist */; };
+		84A55C6323D74B2E003299DA /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A55C6223D74B2E003299DA /* WeatherDataModel.swift */; };
 		BC845D717F129EDCCF528EB1 /* Pods_TravelMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A800E4C66CB202B22D45F08 /* Pods_TravelMeTests.framework */; };
 		D4A5FE09C44A2C3DBF5CA733 /* Pods_TravelMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13BFF63487DBA284460951F /* Pods_TravelMeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		84A4A14523CCEC0100B890AD /* TravelMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TravelMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		84A4A14923CCED0700B890AD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		84A4A14B23CCF29C00B890AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84A55C6223D74B2E003299DA /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 		9646601A06E096DB00B107CD /* Pods-TravelMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMeUITests.debug.xcconfig"; path = "Target Support Files/Pods-TravelMeUITests/Pods-TravelMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CB6EEA27712427D7C35CFEF /* Pods-TravelMe-TravelMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMe-TravelMeUITests.release.xcconfig"; path = "Target Support Files/Pods-TravelMe-TravelMeUITests/Pods-TravelMe-TravelMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BB05E6ADFCF160C475F7C134 /* Pods-TravelMe-TravelMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMe-TravelMeUITests.debug.xcconfig"; path = "Target Support Files/Pods-TravelMe-TravelMeUITests/Pods-TravelMe-TravelMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				84A4A14123CCEBC500B890AD /* FirebaseStorage.swift */,
 				84A4A14323CCEBD300B890AD /* EventNotificationBaseWithObj.swift */,
 				84A4A14923CCED0700B890AD /* User.swift */,
+				84A55C6223D74B2E003299DA /* WeatherDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				84A4A14223CCEBC500B890AD /* FirebaseStorage.swift in Sources */,
 				84A4A0F623CCE7C300B890AD /* SceneDelegate.swift in Sources */,
 				84A4A13C23CCEB9200B890AD /* ModelSql.swift in Sources */,
+				84A55C6323D74B2E003299DA /* WeatherDataModel.swift in Sources */,
 				84A4A14023CCEBB700B890AD /* ModelEvents.swift in Sources */,
 				3D04447023CF870600CC7F00 /* MyPostViewCell.swift in Sources */,
 				84A4A12C23CCEAC000B890AD /* RegisterViewController.swift in Sources */,
