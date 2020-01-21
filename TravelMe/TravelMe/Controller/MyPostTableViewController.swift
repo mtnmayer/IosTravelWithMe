@@ -19,9 +19,9 @@ class MyPostTableViewController: UITableViewController , myPostCellDelegate{
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         
-        ModelEvents.postDataEvent.observ {
-            self.reloadData()
-        }
+//        ModelEvents.postDataEvent.observ {
+//            self.reloadData()
+//        }
         self.refreshControl?.beginRefreshing()
         reloadData()
     }

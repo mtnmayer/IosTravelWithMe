@@ -16,11 +16,13 @@ class PostTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Post.numberOfPosts = Model.instance.modelSql.getNumOfPosts(name: "POSTS")
         //tableView.backgroundView = UIImageView(image: UIImage(named: "background2"))
         self.refreshControl = UIRefreshControl()
          self.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         
         ModelEvents.postDataEvent.observ {
+            self.refreshControl?.beginRefreshing()
             self.reloadData()
         }
         self.refreshControl?.beginRefreshing()

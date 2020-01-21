@@ -15,16 +15,17 @@ class ModelFirebase{
     func addPost(post:Post){
         
         let db = Firestore.firestore()
-        
+        Post.numberOfPosts+=1
+        //Post.postID = String(Post.numberOfPosts)
+
         // Add a new document with a generated ID
-        var ref: DocumentReference? = nil
-        //let json = post.toJson()
-        ref = db.collection("posts").addDocument(data: post.toJson()) { err in
+        //var ref: DocumentReference? = nil
+        let json = post.toJson()
+        db.collection("posts").document(String(Post.numberOfPosts)).setData(json) { err in
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
-                print("Document added with ID: \(ref!.documentID)")
-                Post.postID = ref?.documentID
+                Post.postID = String(Post.numberOfPosts)
                 ModelEvents.postDataEvent.post()
             }
         }
@@ -34,20 +35,21 @@ class ModelFirebase{
         let db = Firestore.firestore()
         
         
-        db.collection("posts").order(by: "lastUpdate").start(at: [Timestamp(seconds: since, nanoseconds: 0)]).getDocuments() { (querySnapshot, err) in
+        db.collection("posts").order(by: "lastUpdate").start(at: [Timestamp(seconds: since, nanoseconds: 0)]).getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 callback(nil)
             } else {
                 var data = [Post]()
                 for document in querySnapshot!.documents {
-                    print(document.data().keys)
+        
                     if let ts = document.data()["lastUpdate"] as? Timestamp{
                         let tsDate = ts.dateValue()
                         print("\(tsDate)")
                         let tsDouble = tsDate.timeIntervalSince1970
                         print("\(tsDouble)")
                     }
+                    //problem!!!!!!
                     print("\(document.documentID)")
                     Post.postID = document.documentID
                     data.append(Post(json:document.data()))
@@ -56,12 +58,12 @@ class ModelFirebase{
             }
         }
     }
-    var postID:String?
+    //var postID:String?
     
     func getMyPosts(callback:@escaping ([Post]?)->Void){
         let db = Firestore.firestore()
-        
-        db.collection("posts").order(by: "email").getDocuments() { (querySnapshot, err) in
+       var ref: DocumentReference? = nil
+        db.collection("posts").order(by: "email").getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 callback(nil)
@@ -69,11 +71,17 @@ class ModelFirebase{
                 var data = [Post]()
                 var i:Int = 0
                 for document in querySnapshot!.documents {
-                    data.append(Post(json:document.data()))
-                   // print("\(document.documentID) => \(document.data())")
-                    //self.postID = document.documentID
-                    data[i].postId = document.documentID
-                    i+=1
+                    print(document)
+                    if(document.data()["email"] as! String == Post.userEmail){
+                        data.append(Post(json:document.data()))
+                                       // print("\(document.documentID) => \(document.data())")
+                                        //self.postID = document.documentID
+                                        data[i].postId = document.documentID
+                                       // data[i].postId = String(Post.numberOfPosts)
+                                        i+=1
+                                      //  Post.postID = String(Post.numberOfPosts)
+
+                    }
                 }
                 callback(data)
             }
@@ -120,7 +128,6 @@ class ModelFirebase{
             }
             else{
                 print("Registration Successful!!")
-                //performSegue(withIdentifier: "goToRegisterSegue", sender: self)
                 print("Log in successful!")
                 var user = Auth.auth().currentUser
                 if let user = user{

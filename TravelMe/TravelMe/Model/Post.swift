@@ -20,6 +20,7 @@ class Post{
     var postId:String?
     static var postID:String?
     static var userEmail:String = ""
+    static var numberOfPosts:Int = 0
     
     init(title:String,place:String, description:String, avatar:String, email:String) {
         self.title = title
