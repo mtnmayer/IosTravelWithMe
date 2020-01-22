@@ -165,6 +165,11 @@
 			<key>orderHint</key>
 			<integer>28</integer>
 		</dict>
+		<key>SwipeCellKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>29</integer>
+		</dict>
 		<key>abseil.xcscheme</key>
 		<dict>
 			<key>isShown</key>

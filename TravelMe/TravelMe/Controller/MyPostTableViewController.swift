@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class MyPostTableViewController: UITableViewController , myPostCellDelegate{
+class MyPostTableViewController: UITableViewController {
     
     var data = [Post]()
     var postID:String?
@@ -19,9 +20,9 @@ class MyPostTableViewController: UITableViewController , myPostCellDelegate{
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         
-//        ModelEvents.postDataEvent.observ {
-//            self.reloadData()
-//        }
+        ModelEvents.postDataEvent.observ {
+            self.reloadData()
+        }
         self.refreshControl?.beginRefreshing()
         reloadData()
     }
@@ -66,7 +67,7 @@ class MyPostTableViewController: UITableViewController , myPostCellDelegate{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:MyPostViewCell = tableView.dequeueReusableCell(withIdentifier: "myPostCell", for: indexPath) as! MyPostViewCell
-        
+        cell.delegate = self
         // Configure the cell...
         
         let post = data[indexPath.row]
@@ -77,9 +78,8 @@ class MyPostTableViewController: UITableViewController , myPostCellDelegate{
             cell.avatarImg.kf.setImage(with: URL(string: post.avatar))
         }
         
-        cell.delegate = self
-        cell.index = indexPath
-        //cell.editBtn.tag = indexPath.row
+//        cell.delegate = self
+//        cell.index = indexPath
         
         return cell
     }
@@ -112,44 +112,6 @@ class MyPostTableViewController: UITableViewController , myPostCellDelegate{
     //       }
     
     
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -160,7 +122,42 @@ class MyPostTableViewController: UITableViewController , myPostCellDelegate{
             vc.post = selectedPost
         }
     }
+}
+
+extension MyPostTableViewController : SwipeTableViewCellDelegate{
+  
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+
+            self.deletePost(index: indexPath.row)
+
+        }
+        
+        let editAction = SwipeAction(style: .destructive, title: "Edit") { action, indexPath in
+                   // handle action by updating model with deletion
+
+                   self.editPost(index: indexPath.row)
+
+               }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete-icon")
+        deleteAction.backgroundColor = UIColor.red
+        editAction.image = UIImage(named: "edit-icon")
+        editAction.backgroundColor = UIColor.blue
+        
+        return [deleteAction,editAction]
+    }
     
+    func updateAction(at indexPath: IndexPath) {
+        // Update our data model.
+        
+        print("Item deleted from superclass")
+    }
     
     
 }

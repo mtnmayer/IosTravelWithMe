@@ -440,7 +440,6 @@
                                             <state key="normal" title="Edit"/>
                                             <connections>
                                                 <action selector="editBtn:" destination="ouA-39-jcd" eventType="touchUpInside" id="14V-N9-kbP"/>
-                                                <segue destination="1mk-Pf-3Dy" kind="show" identifier="goToEditSegue" id="l0K-Iu-gL7"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yl0-LI-RAJ">
@@ -467,6 +466,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="My Post" image="house.fill" catalog="system" id="cXN-uR-oPo"/>
+                    <connections>
+                        <segue destination="1mk-Pf-3Dy" kind="show" identifier="goToEditSegue" id="Tt0-at-8HU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cl-at-G92" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
