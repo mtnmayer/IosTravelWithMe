@@ -29,19 +29,21 @@ class PostTableViewController: UITableViewController {
         reloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
-//      super.viewWillAppear(animated)
-
-      // Add a background view to the table view
-      let backgroundImage = UIImage(named: "background2")
-      let imageView = UIImageView(image: backgroundImage)
-      self.tableView.backgroundView = imageView
-        
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
-        imageView.contentMode = .scaleAspectFill
-        tableView.backgroundColor = .lightGray
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+////        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+////      super.viewWillAppear(animated)
+//
+////      // Add a background view to the table view
+////      let backgroundImage = UIImage(named: "background2")
+////      let imageView = UIImageView(image: backgroundImage)
+////      self.tableView.backgroundView = imageView
+////
+////        tableView.tableFooterView = UIView(frame: CGRect.zero)
+////        imageView.contentMode = .scaleAspectFill
+////        tableView.backgroundColor = .lightGray
+//        
+//        // let backgroundColor = UIColor
+//    }
     
     @objc func reloadData(){
         
@@ -78,7 +80,10 @@ class PostTableViewController: UITableViewController {
         if (post.avatar != ""){
             cell.avatar.kf.setImage(with: URL(string: post.avatar))
         }
-        return cell
+//        let image = UIImage(named: "background2")
+//        let v = UIImageView(image: image)
+//        cell.backgroundView = v;
+            return cell
     }
     
     var selectedPost:Post?

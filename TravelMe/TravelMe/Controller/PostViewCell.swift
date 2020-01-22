@@ -16,7 +16,10 @@ class PostViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+//        let image = UIImage(named: "background2")
+//        self.backgroundColor = UIColor(patternImage:image!);
+
+	        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

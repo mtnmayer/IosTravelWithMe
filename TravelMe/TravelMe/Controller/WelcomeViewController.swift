@@ -38,12 +38,13 @@ class WelcomeViewController: UIViewController {
     @IBAction func loginBtn(_ sender: UIButton) {
         
         let user = User(email: emailText.text!, pass: passwordText.text!)
-        //activity.isHidden = false
+        activity.isHidden = false
     
         Model.instance.loginUser(user: user) { (email) in
             if (email == "wrong"){
                 Utilities().showAlert(title: "Error", message: "try again", vc: self)
             }else{
+                
                 Post.userEmail = email
                 self.performSegue(withIdentifier: "goToHomeSegue", sender: self)
 

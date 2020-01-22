@@ -159,5 +159,9 @@ extension MyPostTableViewController : SwipeTableViewCellDelegate{
         print("Item deleted from superclass")
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+           cell.backgroundColor = .clear
+       }
+    
     
 }

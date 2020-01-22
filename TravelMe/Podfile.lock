@@ -292,6 +292,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - SwiftyJSON (5.0.0)
+  - SwipeCellKit (2.7.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -302,9 +303,10 @@ DEPENDENCIES:
   - Firebase/Storage
   - Kingfisher (~> 5.0)
   - SwiftyJSON
+  - SwipeCellKit
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - abseil
     - Alamofire
     - BoringSSL-GRPC
@@ -330,6 +332,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - SwiftyJSON
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -357,7 +360,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: 6f1cdf2609b76a147a8c529e7e0bd577b2a0aca2
+PODFILE CHECKSUM: cf965bee11512be685a77bd6cc776f1d63d94916
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5

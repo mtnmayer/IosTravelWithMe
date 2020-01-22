@@ -159,12 +159,14 @@ class ModelSql{
     func delete(postId:String){
         //let val:Int = 12345
         
-        let deleteStatementString = "DELETE FROM POSTS where POSTKY = \(postId);"
+        let deleteStatementString = "DELETE FROM POSTS where POSTKY = ?;"
         print(deleteStatementString)
         //        print("DELETE FROM POSTS where POSTID = " + postId + ";")
         var sqlite3_stmt: OpaquePointer? = nil
         
         if (sqlite3_prepare_v2(database,deleteStatementString,-1,&sqlite3_stmt,nil) == SQLITE_OK) {
+            sqlite3_bind_text(sqlite3_stmt, 1, postId,-1,nil);
+
             if sqlite3_step(sqlite3_stmt) == SQLITE_DONE {
                 print("\nSuccessfully deleted row.")
             } else {
