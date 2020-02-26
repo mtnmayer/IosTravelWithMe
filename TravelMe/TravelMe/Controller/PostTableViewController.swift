@@ -23,7 +23,11 @@ class PostTableViewController: UITableViewController {
         
         ModelEvents.postDataEvent.observ {
             self.refreshControl?.beginRefreshing()
-            self.reloadData()
+            self.reloadData()               
+        }
+        
+        ModelEvents.gpsUpdateEvent.observ { (postID) in
+            Model.instance.modelSql.delete(postId: postID)
         }
         self.refreshControl?.beginRefreshing()
         reloadData()

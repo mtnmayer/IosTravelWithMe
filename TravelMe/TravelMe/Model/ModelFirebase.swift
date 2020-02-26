@@ -19,23 +19,40 @@ class ModelFirebase{
         //Post.postID = String(Post.numberOfPosts)
 
         // Add a new document with a generated ID
-        //var ref: DocumentReference? = nil
-        let json = post.toJson()
-        db.collection("posts").document(String(Post.numberOfPosts)).setData(json) { err in
+        var ref: DocumentReference? = nil
+        //let json = post.toJson()
+        ref =  db.collection("posts").addDocument(data:post.toJson()) { err in
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
-                Post.postID = String(Post.numberOfPosts)
+                //Post.postID = String(Post.numberOfPosts)
                 ModelEvents.postDataEvent.post()
             }
         }
     }
     
+    func addFavoritePost(post:Post){
+         
+         let db = Firestore.firestore()
+        
+
+         // Add a new document with a generated ID
+         var ref: DocumentReference? = nil
+         //let json = post.toJson()
+         ref =  db.collection("FavoritePosts").addDocument(data:post.toJson()) { err in
+             if let err = err {
+                 print("Error adding document: \(err)")
+             } else {
+                 ModelEvents.postDataEvent.post()
+             }
+         }
+     }
+    
     func getAllPosts(since:Int64, callback:@escaping ([Post]?)->Void){
         let db = Firestore.firestore()
+        Post.postSet.removeAll()
         
-        
-        db.collection("posts").order(by: "lastUpdate").start(at: [Timestamp(seconds: since, nanoseconds: 0)]).getDocuments { (querySnapshot, err) in
+        db.collection("posts").order(by: "lastUpdate").start(at: [Timestamp(seconds: 0, nanoseconds: 0)]).getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 callback(nil)
@@ -52,6 +69,7 @@ class ModelFirebase{
                     //problem!!!!!!
                     print("\(document.documentID)")
                     Post.postID = document.documentID
+                    Post.postSet.insert(Post.postID!)
                     data.append(Post(json:document.data()))
                 }
                 callback(data)
@@ -96,6 +114,8 @@ class ModelFirebase{
                 print("Error removing document: \(err)")
             } else {
                 print("Document successfully removed!")
+                Post.postSet.remove(postID)
+                ModelEvents.gpsUpdateEvent.post(data: postID)
             }
         }
     }

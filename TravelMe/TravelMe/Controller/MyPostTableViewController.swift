@@ -149,7 +149,6 @@ extension MyPostTableViewController : SwipeTableViewCellDelegate{
         deleteAction.backgroundColor = UIColor.red
         editAction.image = UIImage(named: "edit-icon")
         editAction.backgroundColor = UIColor.blue
-        
         return [deleteAction,editAction]
     }
     

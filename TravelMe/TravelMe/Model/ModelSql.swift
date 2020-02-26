@@ -91,8 +91,12 @@ class ModelSql{
                 let avatar = String(cString:sqlite3_column_text(sqlite3_stmt,4)!)
                 let email = String(cString:sqlite3_column_text(sqlite3_stmt,5)!)
                 
+                if(!Post.postSet.contains(postId)){
+                    delete(postId: postId)
+                    continue
+                }
                 //Post.numberOfPosts = Int(postId)!
-                Post.postID = postId
+               // Post.postID = postId
                 data.append(Post(title: title, place: place, description: description, avatar: avatar, email: email))
             }
         }

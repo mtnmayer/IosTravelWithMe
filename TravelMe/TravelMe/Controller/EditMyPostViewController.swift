@@ -84,17 +84,17 @@ class EditMyPostViewController: UIViewController, UIImagePickerControllerDelegat
              saveBtn.isEnabled = false
              chooseBtn.isEnabled = false
              
-             if let selectedImage = selectedImage {
-                 Model.instance.saveImage(image: selectedImage) { (url) in
+             
+        Model.instance.saveImage(image:  self.avatarImg.image!) { (url) in
                      post.avatar = url
                     Model.instance.updateMyPost(postId: self.postId, post: post)
                      self.navigationController?.popViewController(animated: true)
-                 }
-             }else{
-                Model.instance.updateMyPost(postId: postId, post: post)
-                 self.navigationController?.popViewController(animated: true)
-                 return
-             }
+        }
+//             }else{
+//                Model.instance.updateMyPost(postId: postId, post: post)
+//                 self.navigationController?.popViewController(animated: true)
+//                 return
+//             }
         
     }
     

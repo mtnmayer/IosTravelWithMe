@@ -240,8 +240,8 @@
 		84A4A12723CCEA5A00B890AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				84A4A13523CCEB5500B890AD /* Post.swift */,
 				84A4A13723CCEB6600B890AD /* Model.swift */,
+				84A4A13523CCEB5500B890AD /* Post.swift */,
 				84A4A13923CCEB7800B890AD /* ModelFirebase.swift */,
 				84A4A13B23CCEB9200B890AD /* ModelSql.swift */,
 				84A4A13D23CCEBA900B890AD /* EventNotificationBase.swift */,

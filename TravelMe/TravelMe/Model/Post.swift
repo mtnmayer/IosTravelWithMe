@@ -21,6 +21,7 @@ class Post{
     static var postID:String?
     static var userEmail:String = ""
     static var numberOfPosts:Int = 0
+    static var postSet:Set = Set<String>()
     
     init(title:String,place:String, description:String, avatar:String, email:String) {
         self.title = title
