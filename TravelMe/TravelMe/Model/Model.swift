@@ -41,9 +41,10 @@ class Model{
             //insert update to the local db
            // var lud:Int64 = 0;
             for post in data!{
-                self.modelSql.addPost(post: post)
+                
                 if post.lastUpdate! > lud {
                     lud = post.lastUpdate!
+                    self.modelSql.addPost(post: post)
                 }
             }
             //update the posts local last update date
@@ -102,13 +103,33 @@ class Model{
         modelFirebase.getMyPosts(callback: callback)
     }
     
+    func getFavoritePosts(callback:@escaping ([Post]?)->Void){
+        
+        let data = modelSql.getFavoritePosts()
+        callback(data)
+        
+    }
+    
     func deleteMyPost(postID:String){
         modelFirebase.deleteMyPost(postID: postID)
         modelSql.delete(postId: postID)
+        modelFirebase.deleteFavoritePost(postID: postID)
+    }
+    
+    func deleteFavoritePost(post:Post){
+        //modelFirebase.deleteFavoritePost(postID: postID)
+        post.setPostselected(postSelected: "false")
+        modelSql.addPost(post: post)
     }
     
     func updateMyPost(postId:String, post:Post){
         modelFirebase.updateMyPost(postId: postId, post: post)
+    }
+    
+    func addFavoritePost(post:Post){
+       // modelFirebase.addFavoritePost(post: post)
+        post.setPostselected(postSelected: "true")
+        modelSql.addPost(post: post)
     }
     
     func saveImage(image:UIImage, callback: @escaping (String)->Void){

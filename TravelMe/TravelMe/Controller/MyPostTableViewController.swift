@@ -27,6 +27,7 @@ class MyPostTableViewController: UITableViewController {
         reloadData()
     }
     
+    
     @objc func reloadData(){
         
         Model.instance.getMyPosts { (d_data:[Post]?) in

@@ -33,7 +33,7 @@ class ModelSql{
         
         var errormsg: UnsafeMutablePointer<Int8>? = nil
         
-        var res = sqlite3_exec(database, "CREATE TABLE IF NOT EXISTS POSTS (POSTKY TEXT PRIMARY KEY, TITLE TEXT, PLACE TEXT, DESCRIPTION TEXT, AVATAR TEXT, EMAIL TEXT)", nil, nil, &errormsg);
+        var res = sqlite3_exec(database, "CREATE TABLE IF NOT EXISTS POSTS (POSTKY TEXT PRIMARY KEY, TITLE TEXT, PLACE TEXT, DESCRIPTION TEXT, AVATAR TEXT, EMAIL TEXT, POSTSELECTED TEXT)", nil, nil, &errormsg);
         if(res != 0){
             print("error creating table");
             return
@@ -51,18 +51,20 @@ class ModelSql{
             print("error creating table");
             return
         }
+        
     }
     
     func addPost(post:Post){
         
         var sqlite3_stmt: OpaquePointer? = nil
-        if (sqlite3_prepare_v2(database,"INSERT OR REPLACE INTO POSTS(POSTKY, TITLE, PLACE, DESCRIPTION, AVATAR, EMAIL) VALUES (?,?,?,?,?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
+        if (sqlite3_prepare_v2(database,"INSERT OR REPLACE INTO POSTS(POSTKY, TITLE, PLACE, DESCRIPTION, AVATAR, EMAIL, POSTSELECTED) VALUES (?,?,?,?,?,?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
             let postId = post.postId!.cString(using: .utf8)
             let title = post.title.cString(using: .utf8)
             let place = post.place.cString(using: .utf8)
             let description = post.description.cString(using: .utf8)
             let avatar = post.avatar.cString(using: .utf8)
             let email = post.email.cString(using: .utf8)
+            let postSelected = post.postSelected.cString(using: .utf8)
             
             sqlite3_bind_text(sqlite3_stmt, 1, postId,-1,nil);
             sqlite3_bind_text(sqlite3_stmt, 2, title,-1,nil);
@@ -70,6 +72,7 @@ class ModelSql{
             sqlite3_bind_text(sqlite3_stmt, 4, description,-1,nil);
             sqlite3_bind_text(sqlite3_stmt, 5, avatar,-1,nil);
             sqlite3_bind_text(sqlite3_stmt, 6, email,-1,nil);
+            sqlite3_bind_text(sqlite3_stmt, 7, postSelected,-1,nil);
             
             if(sqlite3_step(sqlite3_stmt) == SQLITE_DONE){
                 print("new row added succefully")
@@ -77,6 +80,7 @@ class ModelSql{
         }
         sqlite3_finalize(sqlite3_stmt)
     }
+    
     
     func getAllPosts()->[Post]{
         
@@ -90,19 +94,47 @@ class ModelSql{
                 let description = String(cString:sqlite3_column_text(sqlite3_stmt,3)!)
                 let avatar = String(cString:sqlite3_column_text(sqlite3_stmt,4)!)
                 let email = String(cString:sqlite3_column_text(sqlite3_stmt,5)!)
+                let postSelected = String(cString:sqlite3_column_text(sqlite3_stmt,6)!)
                 
                 if(!Post.postSet.contains(postId)){
                     delete(postId: postId)
                     continue
                 }
                 //Post.numberOfPosts = Int(postId)!
-               // Post.postID = postId
-                data.append(Post(title: title, place: place, description: description, avatar: avatar, email: email))
+                //Post.postID = postId
+                data.append(Post(title: title, place: place, description: description, avatar: avatar, email: email, postId: postId, postSelected: postSelected))
             }
         }
         sqlite3_finalize(sqlite3_stmt)
         return data
     }
+    
+    func getFavoritePosts()->[Post]{
+           
+           var sqlite3_stmt: OpaquePointer? = nil
+           var data = [Post]()
+           if (sqlite3_prepare_v2(database,"SELECT * from POSTS;",-1,&sqlite3_stmt,nil) == SQLITE_OK){
+               while(sqlite3_step(sqlite3_stmt) == SQLITE_ROW){
+                   let postId = String(cString:sqlite3_column_text(sqlite3_stmt,0)!)
+                   let title = String(cString:sqlite3_column_text(sqlite3_stmt,1)!)
+                   let place = String(cString:sqlite3_column_text(sqlite3_stmt,2)!)
+                   let description = String(cString:sqlite3_column_text(sqlite3_stmt,3)!)
+                   let avatar = String(cString:sqlite3_column_text(sqlite3_stmt,4)!)
+                   let email = String(cString:sqlite3_column_text(sqlite3_stmt,5)!)
+                   let postSelected = String(cString:sqlite3_column_text(sqlite3_stmt,6)!)
+                   
+                if(postSelected == "false"){
+                       continue
+                   }
+                   //Post.numberOfPosts = Int(postId)!
+                   //Post.postID = postId
+                   data.append(Post(title: title, place: place, description: description, avatar: avatar, email: email, postId: postId, postSelected: postSelected))
+               }
+           }
+           sqlite3_finalize(sqlite3_stmt)
+           return data
+       }
+    
     
     func setLastUpdate(name:String, lastUpdated:Int64){
         var sqlite3_stmt: OpaquePointer? = nil

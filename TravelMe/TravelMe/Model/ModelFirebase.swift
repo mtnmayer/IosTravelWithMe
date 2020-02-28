@@ -37,9 +37,9 @@ class ModelFirebase{
         
 
          // Add a new document with a generated ID
-         var ref: DocumentReference? = nil
-         //let json = post.toJson()
-         ref =  db.collection("FavoritePosts").addDocument(data:post.toJson()) { err in
+        // var ref: DocumentReference? = nil
+         let json = post.toJson()
+        db.collection("FavoritePosts").document(String(post.postId!)).setData(json) { err in
              if let err = err {
                  print("Error adding document: \(err)")
              } else {
@@ -76,7 +76,27 @@ class ModelFirebase{
             }
         }
     }
-    //var postID:String?
+    
+    func getFavoritePosts(callback:@escaping ([Post]?)->Void){
+          let db = Firestore.firestore()
+          
+          db.collection("FavoritePosts").getDocuments { (querySnapshot, err) in
+              if let err = err {
+                  print("Error getting documents: \(err)")
+                  callback(nil)
+              } else {
+                  var data = [Post]()
+                  for document in querySnapshot!.documents {
+                      
+                      print("\(document.documentID)")
+                      //Post.postID = document.documentID
+                      
+                      data.append(Post(json:document.data()))
+                  }
+                  callback(data)
+              }
+          }
+      }
     
     func getMyPosts(callback:@escaping ([Post]?)->Void){
         let db = Firestore.firestore()
@@ -119,6 +139,18 @@ class ModelFirebase{
             }
         }
     }
+    
+    func deleteFavoritePost(postID:String){
+          let db = Firestore.firestore()
+          
+          db.collection("FavoritePosts").document(postID).delete() { err in
+              if let err = err {
+                  print("Error removing document: \(err)")
+              } else {
+                  print("Document successfully removed!")
+              }
+          }
+      }
     
     func updateMyPost(postId:String, post:Post){
         let db = Firestore.firestore()

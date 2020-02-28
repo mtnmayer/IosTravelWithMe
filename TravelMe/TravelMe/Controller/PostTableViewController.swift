@@ -15,7 +15,6 @@ class PostTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         Post.numberOfPosts = Model.instance.modelSql.getNumOfPosts(name: "POSTS")
         //tableView.backgroundView = UIImageView(image: UIImage(named: "background2"))
         self.refreshControl = UIRefreshControl()
@@ -33,6 +32,10 @@ class PostTableViewController: UITableViewController {
         reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+           reloadData()
+       }
+    
 //    override func viewWillAppear(_ animated: Bool) {
 ////        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
 ////      super.viewWillAppear(animated)
@@ -45,8 +48,9 @@ class PostTableViewController: UITableViewController {
 ////        tableView.tableFooterView = UIView(frame: CGRect.zero)
 ////        imageView.contentMode = .scaleAspectFill
 ////        tableView.backgroundColor = .lightGray
-//        
+//
 //        // let backgroundColor = UIColor
+//        reloadData()
 //    }
     
     @objc func reloadData(){
@@ -72,22 +76,46 @@ class PostTableViewController: UITableViewController {
         return data.count
     }
     
+    var flag:Bool = false
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PostViewCell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostViewCell
         
         // Configure the cell...
-        let post = data[indexPath.row]
+          let post = data[indexPath.row]
         cell.titleLabel.text = post.title
         cell.placeLabel.text = post.place
         cell.avatar.image = UIImage(named: "avatar")
         if (post.avatar != ""){
             cell.avatar.kf.setImage(with: URL(string: post.avatar))
         }
-//        let image = UIImage(named: "background2")
-//        let v = UIImageView(image: image)
-//        cell.backgroundView = v;
+        cell.strBtn.tag = indexPath.row
+        cell.strBtn.addTarget(self, action: #selector(favoriteCliked(sender:)), for: .touchUpInside)
+        if(post.postSelected == "true"){
+            cell.strBtn.tintColor = .orange
+        }else if(post.postSelected == "false"){
+            cell.strBtn.tintColor = .lightGray
+        }
             return cell
+    }
+    
+    @objc func favoriteCliked(sender: UIButton){
+        print("button presed")
+        
+        if sender.isSelected{
+            sender.tintColor = .lightGray
+            sender.isSelected = false
+            flag = false
+            Model.instance.deleteFavoritePost(post: data[sender.tag])
+            print(sender.tag)
+        }else{
+            sender.tintColor = .orange
+            sender.isSelected = true
+            flag = true
+            Model.instance.addFavoritePost(post: data[sender.tag])
+           print(sender.tag)
+        }
     }
     
     var selectedPost:Post?

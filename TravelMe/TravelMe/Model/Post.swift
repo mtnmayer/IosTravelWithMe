@@ -18,18 +18,20 @@ class Post{
     var lastUpdate: Int64?
     var email:String = ""
     var postId:String?
+    var postSelected:String = "false"
     static var postID:String?
     static var userEmail:String = ""
     static var numberOfPosts:Int = 0
     static var postSet:Set = Set<String>()
     
-    init(title:String,place:String, description:String, avatar:String, email:String) {
+    init(title:String,place:String, description:String, avatar:String, email:String, postId: String, postSelected:String) {
         self.title = title
         self.description = description
         self.avatar = avatar
         self.place = place
         self.email = email
-        //self.postId = postId
+        self.postId = postId
+        self.postSelected = postSelected
     }
     
     init(json:[String:Any]){
@@ -55,7 +57,7 @@ class Post{
         return json;
     }
     
-    func setPostId(postID:String){
-        self.postId = postID
+    func setPostselected(postSelected:String){
+        self.postSelected = postSelected
     }
 }

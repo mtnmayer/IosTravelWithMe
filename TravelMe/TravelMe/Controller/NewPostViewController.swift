@@ -57,7 +57,7 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     var selectedImage: UIImage?
     
     @IBAction func postBtn(_ sender: UIButton) {
-        var post = Post(title: self.titleTexField.text!, place: self.placeTextField.text!, description: self.descriptionText.text!, avatar: "", email: Post.userEmail)
+        var post = Post(title: self.titleTexField.text!, place: self.placeTextField.text!, description: self.descriptionText.text!, avatar: "", email: Post.userEmail, postId: "", postSelected: "")
         activity.isHidden = false
         saveBtn.isEnabled = false
         chooseBtn.isEnabled = false

@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol FavoritePostDelegate{
+    func favoriteButtonPresed(cell: PostViewCell)
+}
+
 class PostViewCell: UITableViewCell {
 
     @IBOutlet weak var placeLabel: UILabel!
        @IBOutlet weak var titleLabel: UILabel!
        @IBOutlet weak var avatar: UIImageView!
+   
+    @IBOutlet weak var strBtn: UIButton!
+    
+    var delegate: FavoritePostDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,5 +35,8 @@ class PostViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func favoriteButton(_ sender: UIButton) {
+        
+    }
+    
 }

@@ -79,7 +79,7 @@ class EditMyPostViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func saveBtn(_ sender: UIButton) {
         
-        var post = Post(title: self.titleTextField.text!, place: self.placeTextField.text!, description: self.decriptionTextField.text!, avatar: "", email: Post.userEmail)
+        let post = Post(title: self.titleTextField.text!, place: self.placeTextField.text!, description: self.decriptionTextField.text!, avatar: "", email: Post.userEmail, postId: "", postSelected: "")
              activity.isHidden = false
              saveBtn.isEnabled = false
              chooseBtn.isEnabled = false
