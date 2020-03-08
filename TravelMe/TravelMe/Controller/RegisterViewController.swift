@@ -12,13 +12,21 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var activityBtn: UIActivityIndicatorView!
+    @IBOutlet weak var registerBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityBtn.isHidden = true
         // Do any additional setup after loading the view.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(WelcomeViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        activityBtn.isHidden = true
+        registerBtn.isHidden = false
     }
     
     @objc func dismissKeyboard(){
@@ -37,9 +45,14 @@ class RegisterViewController: UIViewController {
     
     @IBAction func registerBtn(_ sender: UIButton) {
         
+        activityBtn.isHidden = false
+        registerBtn.isHidden = true
+        
         let user = User(email: emailText.text!, pass: passwordText.text!)
         Model.instance.CreateUser(user: user) { (email) in
             if(email == "wrong"){
+                self.activityBtn.isHidden = true
+                self.registerBtn.isHidden = false
                 Utilities().showAlert(title: "Error", message: "try again", vc: self)
             }else{
                 Post.userEmail = email

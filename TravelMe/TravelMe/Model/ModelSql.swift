@@ -46,12 +46,6 @@ class ModelSql{
             return
         }
         
-        res = sqlite3_exec(database, "CREATE TABLE IF NOT EXISTS NUM_OF_POSTS (NAME TEXT PRIMARY KEY, NUMBER INT)", nil, nil, &errormsg);
-        if(res != 0){
-            print("error creating table");
-            return
-        }
-        
     }
     
     func addPost(post:Post){
@@ -126,7 +120,7 @@ class ModelSql{
                 if(postSelected == "false"){
                        continue
                    }
-                   //Post.numberOfPosts = Int(postId)!
+                   
                    //Post.postID = postId
                    data.append(Post(title: title, place: place, description: description, avatar: avatar, email: email, postId: postId, postSelected: postSelected))
                }
@@ -163,34 +157,6 @@ class ModelSql{
         return date
     }
     
-    func setNumOfPosts(num:Int,name:String){
-        
-        var sqlite3_stmt: OpaquePointer? = nil
-        if (sqlite3_prepare_v2(database,"INSERT OR REPLACE INTO NUM_OF_POSTS(NAME, NUMBER) VALUES (?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
-            
-            sqlite3_bind_text(sqlite3_stmt, 1, name,-1,nil);
-            sqlite3_bind_int(sqlite3_stmt, 2, Int32(num));
-            if(sqlite3_step(sqlite3_stmt) == SQLITE_DONE){
-                print("new row added succefully")
-            }
-        }
-        sqlite3_finalize(sqlite3_stmt)
-    }
-    
-    func getNumOfPosts(name:String)->Int{
-        
-       var num:Int = 0;
-        var sqlite3_stmt: OpaquePointer? = nil
-        if (sqlite3_prepare_v2(database,"SELECT * from NUM_OF_POSTS where NAME like ?;",-1,&sqlite3_stmt,nil) == SQLITE_OK){
-            sqlite3_bind_text(sqlite3_stmt, 1, name,-1,nil);
-            
-            if(sqlite3_step(sqlite3_stmt) == SQLITE_ROW){
-                num = Int(sqlite3_column_int(sqlite3_stmt,1))
-            }
-        }
-        sqlite3_finalize(sqlite3_stmt)
-        return num
-    }
     
     func delete(postId:String){
         //let val:Int = 12345

@@ -34,7 +34,6 @@ class Model{
         
         //get the local last update date
         var lud = modelSql.getLastUpdateDate(name: "POSTS")
-        let num = modelSql.getNumOfPosts(name: "POSTS")
         
         //get the cloud updates since the local update date
         modelFirebase.getAllPosts(since:lud) { (data) in
@@ -49,7 +48,6 @@ class Model{
             }
             //update the posts local last update date
             self.modelSql.setLastUpdate(name: "POSTS", lastUpdated: lud)
-            self.modelSql.setNumOfPosts(num: data!.count+num, name: "POSTS")
             
             // get the complete student list
             let finalData = self.modelSql.getAllPosts()
@@ -57,46 +55,6 @@ class Model{
         }
     }
     
-    
-    //    func getAllPosts(callback:@escaping ([Post]?)->Void){
-    //
-    //        let lud = modelSql.getLastUpdateDate(name: "POSTS")
-    //        modelFirebase.getAllPosts(since: lud) { (data) in
-    //
-    //            let num = self.modelSql.getNumOfPosts(name: "POSTS")
-    //            if(num != 0){
-    //                Post.numberOfPosts = num
-    //            }
-    //            var lud:Int64 = 0
-    //            var i:Int = 0
-    //            for post in data!{
-    //
-    //                if (num == 0){
-    //                    Post.numberOfPosts = num+1
-    //                    self.modelSql.addPost(post: post)
-    //                    if post.lastUpdate! > lud{
-    //                        lud = post.lastUpdate!
-    //                        self.modelSql.setNumOfPosts(num: num+1,name: "POSTS")
-    //                    }
-    //                }else if ((data?.index(after: i))! > 1){
-    //                    Post.numberOfPosts = num+1
-    //                    self.modelSql.addPost(post: post)
-    //                    if post.lastUpdate! > lud{
-    //                        lud = post.lastUpdate!
-    //                        self.modelSql.setNumOfPosts(num: num+1,name: "POSTS")
-    //                    }
-    //                }
-    //                i+=1
-    //            }
-    //
-    //            self.modelSql.setLastUpdate(name: "POSTS", lastUpdated: lud)
-    //            let finalData = self.modelSql.getAllPosts()
-    //            //self.modelSql.getNumOfPosts()
-    //
-    //            callback(finalData)
-    //        }
-    //        //  modelFirebase.getAllPosts(callback: callback)
-    //    }
     
     func getMyPosts(callback:@escaping ([Post]?)->Void){
         

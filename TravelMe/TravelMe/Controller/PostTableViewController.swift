@@ -15,8 +15,7 @@ class PostTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Post.numberOfPosts = Model.instance.modelSql.getNumOfPosts(name: "POSTS")
-        //tableView.backgroundView = UIImageView(image: UIImage(named: "background2"))
+       
         self.refreshControl = UIRefreshControl()
          self.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         
@@ -32,26 +31,10 @@ class PostTableViewController: UITableViewController {
         reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-           reloadData()
-       }
+//    override func viewDidAppear(_ animated: Bool) {
+//           reloadData()
+//       }
     
-//    override func viewWillAppear(_ animated: Bool) {
-////        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
-////      super.viewWillAppear(animated)
-//
-////      // Add a background view to the table view
-////      let backgroundImage = UIImage(named: "background2")
-////      let imageView = UIImageView(image: backgroundImage)
-////      self.tableView.backgroundView = imageView
-////
-////        tableView.tableFooterView = UIView(frame: CGRect.zero)
-////        imageView.contentMode = .scaleAspectFill
-////        tableView.backgroundColor = .lightGray
-//
-//        // let backgroundColor = UIColor
-//        reloadData()
-//    }
     
     @objc func reloadData(){
         
@@ -131,44 +114,7 @@ class PostTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
     }
-//
-//     func tableView(tableView: UITableView, willDisplay  cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//
-//       }
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
+
     
     
     // MARK: - Navigation

@@ -30,6 +30,7 @@ class Post{
         self.avatar = avatar
         self.place = place
         self.email = email
+        //Post.userEmail = email
         self.postId = postId
         self.postSelected = postSelected
     }
@@ -39,7 +40,7 @@ class Post{
         self.place = json["place"] as! String;
         self.description = json["description"] as! String
         self.avatar = json["avatar"] as! String;
-        self.email = Post.userEmail
+        self.email = json["email"] as! String
         self.postId = Post.postID
         let ts = json["lastUpdate"] as! Timestamp
         lastUpdate = ts.seconds

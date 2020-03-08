@@ -39,19 +39,7 @@ class MyPostTableViewController: UITableViewController {
         }
     }
     
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        //        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
-    //        //      super.viewWillAppear(animated)
-    //
-    //        // Add a background view to the table view
-    //        let backgroundImage = UIImage(named: "background2")
-    //        let imageView = UIImageView(image: backgroundImage)
-    //        self.tableView.backgroundView = imageView
-    //
-    //        tableView.tableFooterView = UIView(frame: CGRect.zero)
-    //        imageView.contentMode = .scaleAspectFill
-    //        tableView.backgroundColor = .lightGray
-    //    }
+ 
     
     // MARK: - Table view data source
     
@@ -96,21 +84,6 @@ class MyPostTableViewController: UITableViewController {
         Model.instance.deleteMyPost(postID: data[index].postId!)
         reloadData()
     }
-    
-    //    var selectedPost:Post?
-    //
-    //       override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //             tableView.deselectRow(at: indexPath, animated: true)
-    //
-    //           selectedPost = data[indexPath.row]
-    //
-    //           performSegue(withIdentifier: "postInfoSegue", sender: self)
-    //
-    //       }
-    //
-    //       override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    //           cell.backgroundColor = .clear
-    //       }
     
     
     // MARK: - Navigation
