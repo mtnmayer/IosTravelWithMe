@@ -12,6 +12,7 @@ import Kingfisher
 class PostTableViewController: UITableViewController {
 
     var data = [Post]()
+    var favoriteData = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +38,23 @@ class PostTableViewController: UITableViewController {
     
     
     @objc func reloadData(){
-        
         Model.instance.getAllPosts { (d_data:[Post]?) in
             if (d_data != nil){
                 self.data = d_data!
+                
+                   for post in self.data {
+                    if (Post.favoritePostSet.contains(post.postId!)){
+                        post.postSelected = "true"
+                    }else{
+                        post.postSelected = "false"
+                    }
+                }
+                let arr = Array(Post.favoritePostSet)
+                for post in arr {
+                    if(!Post.postSet.contains(post)){
+                        Model.instance.deleteFavoritePostByID(postId: post)
+                    }
+                }
                 self.tableView.reloadData()
             }
             self.refreshControl?.endRefreshing()
@@ -67,6 +81,8 @@ class PostTableViewController: UITableViewController {
         
         // Configure the cell...
           let post = data[indexPath.row]
+        
+      
         cell.titleLabel.text = post.title
         cell.placeLabel.text = post.place
         cell.avatar.image = UIImage(named: "avatar")

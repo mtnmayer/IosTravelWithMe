@@ -23,6 +23,8 @@ class Post{
     static var userEmail:String = ""
     static var numberOfPosts:Int = 0
     static var postSet:Set = Set<String>()
+    static var favoritePostSet:Set = Set<String>()
+    static var arrOfPost = [Post]()
     
     init(title:String,place:String, description:String, avatar:String, email:String, postId: String, postSelected:String) {
         self.title = title
@@ -42,6 +44,7 @@ class Post{
         self.avatar = json["avatar"] as! String;
         self.email = json["email"] as! String
         self.postId = Post.postID
+        self.postSelected = json["postSelected"] as! String
         let ts = json["lastUpdate"] as! Timestamp
         lastUpdate = ts.seconds
     }
@@ -54,6 +57,7 @@ class Post{
         json["avatar"] = avatar
         json["email"] = email
         json["postId"] = postId
+        json["postSelected"] = postSelected
         json["lastUpdate"] = FieldValue.serverTimestamp()
         return json;
     }
@@ -61,4 +65,18 @@ class Post{
     func setPostselected(postSelected:String){
         self.postSelected = postSelected
     }
+    
+    func favoriteToJson() -> [String:Any] {
+          var json = [String:Any]();
+          json["title"] = title
+          json["place"] = place
+          json["description"] = description
+          json["avatar"] = avatar
+          json["email"] = email
+          json["postId"] = postId
+          json["postSelected"] = postSelected
+          json["lastUpdate"] = FieldValue.serverTimestamp()
+        
+          return json;
+      }
 }

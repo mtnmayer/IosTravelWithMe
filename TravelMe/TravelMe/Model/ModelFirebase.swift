@@ -39,7 +39,7 @@ class ModelFirebase{
          // Add a new document with a generated ID
         // var ref: DocumentReference? = nil
          let json = post.toJson()
-        db.collection("FavoritePosts").document(String(post.postId!)).setData(json) { err in
+        db.collection(Post.userEmail).document(String(post.postId!)).setData(json) { err in
              if let err = err {
                  print("Error adding document: \(err)")
              } else {
@@ -51,12 +51,17 @@ class ModelFirebase{
     func getAllPosts(since:Int64, callback:@escaping ([Post]?)->Void){
         let db = Firestore.firestore()
         Post.postSet.removeAll()
+        Post.favoritePostSet.removeAll()
+        //var favoriteData = [Post]()
+        
+   
         
         db.collection("posts").order(by: "lastUpdate").start(at: [Timestamp(seconds: 0, nanoseconds: 0)]).getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 callback(nil)
             } else {
+                /////-------------------
                 var data = [Post]()
                 for document in querySnapshot!.documents {
         
@@ -75,12 +80,25 @@ class ModelFirebase{
                 callback(data)
             }
         }
+        
+        db.collection(Post.userEmail).getDocuments { (querySnapshot, err) in
+                       if let err = err {
+                           print("Error getting documents: \(err)")
+                       } else {
+                        var data = [Post]()
+                           for document in querySnapshot!.documents {
+                            Post.favoritePostSet.insert(document.documentID)
+                            data.append(Post(json:document.data()))
+                           }
+                        Post.arrOfPost = data
+                       }
+                   }
     }
     
     func getFavoritePosts(callback:@escaping ([Post]?)->Void){
           let db = Firestore.firestore()
           
-          db.collection("FavoritePosts").getDocuments { (querySnapshot, err) in
+        db.collection(Post.userEmail).getDocuments { (querySnapshot, err) in
               if let err = err {
                   print("Error getting documents: \(err)")
                   callback(nil)
@@ -90,7 +108,7 @@ class ModelFirebase{
                       
                       print("\(document.documentID)")
                       //Post.postID = document.documentID
-                      
+                      Post.favoritePostSet.insert(document.documentID)
                       data.append(Post(json:document.data()))
                   }
                   callback(data)
@@ -143,7 +161,7 @@ class ModelFirebase{
     func deleteFavoritePost(postID:String){
           let db = Firestore.firestore()
           
-          db.collection("FavoritePosts").document(postID).delete() { err in
+        db.collection(Post.userEmail).document(postID).delete() { err in
               if let err = err {
                   print("Error removing document: \(err)")
               } else {

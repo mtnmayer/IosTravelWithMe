@@ -49,6 +49,7 @@ class Model{
             //update the posts local last update date
             self.modelSql.setLastUpdate(name: "POSTS", lastUpdated: lud)
             
+            
             // get the complete student list
             let finalData = self.modelSql.getAllPosts()
             callback(finalData);
@@ -63,8 +64,9 @@ class Model{
     
     func getFavoritePosts(callback:@escaping ([Post]?)->Void){
         
-        let data = modelSql.getFavoritePosts()
-        callback(data)
+       // let data = modelSql.getFavoritePosts()
+         modelFirebase.getFavoritePosts(callback: callback)
+        //callback(data)
         
     }
     
@@ -77,7 +79,12 @@ class Model{
     func deleteFavoritePost(post:Post){
         //modelFirebase.deleteFavoritePost(postID: postID)
         post.setPostselected(postSelected: "false")
-        modelSql.addPost(post: post)
+        //modelSql.addPost(post: post)
+        modelFirebase.deleteFavoritePost(postID: post.postId!);
+    }
+    
+    func deleteFavoritePostByID(postId:String){
+        modelFirebase.deleteFavoritePost(postID: postId);
     }
     
     func updateMyPost(postId:String, post:Post){
@@ -87,7 +94,8 @@ class Model{
     func addFavoritePost(post:Post){
        // modelFirebase.addFavoritePost(post: post)
         post.setPostselected(postSelected: "true")
-        modelSql.addPost(post: post)
+       // modelSql.addPost(post: post)
+        modelFirebase.addFavoritePost(post: post);
     }
     
     func saveImage(image:UIImage, callback: @escaping (String)->Void){
